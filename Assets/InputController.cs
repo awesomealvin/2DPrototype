@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    [SerializeField]
+    MovementController movementController;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         HandleMovementInput();
     }
@@ -21,16 +23,32 @@ public class InputController : MonoBehaviour
         float horionztal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        bool isMoving = false;
+        // Debug.Log("Horizontal: " + horionztal);
+        // Debug.Log("Vertical: " + vertical);
 
-        if (horionztal > 0.0f || horionztal < 0.0f)
+        if (horionztal > 0.0f)
         {
-            isMoving = true;
+            movementController.MoveRight();
+            Debug.Log("Move Right Pressed");
         }
-        
-        if (vertical > 0.0f || vertical < 0.0f)
+        else if (horionztal < 0.0f)
         {
-            isMoving = true;
+            movementController.MoveLeft();
+            Debug.Log("Move Left Pressed");
+
+        }
+
+        if (vertical > 0.0f)
+        {
+            movementController.MoveUp();
+            Debug.Log("Move Up Pressed");
+
+        }
+        else if (vertical < 0.0f)
+        {
+            movementController.MoveDown();
+            Debug.Log("Move Down Pressed");
+
         }
     }
 }

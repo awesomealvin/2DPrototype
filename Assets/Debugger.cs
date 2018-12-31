@@ -9,13 +9,21 @@ public class Debugger : MonoBehaviour
     static Debugger instance;
 
     [SerializeField]
-    TMP_Text[] debugText;
+    Movement playerMovement;
 
+    [SerializeField]
+    TMP_Text[] debugText;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+    }
+
+
+    void Update()
+    {
+        debugText[0].SetText(playerMovement.currentVelocity.magnitude.ToString());
     }
 
     public static Debugger GetInstance()
