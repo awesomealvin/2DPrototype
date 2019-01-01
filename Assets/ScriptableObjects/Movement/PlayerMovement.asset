@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 5
   maxSpeed: 10
-  currentVelocity: {x: 0, y: 0}
   linearDrag: 10
+  currentVelocity: {x: 0.000047978545, y: 0.00017086139}

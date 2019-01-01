@@ -7,6 +7,14 @@ public class MovementController : MonoBehaviour
     public Movement movement;
     public Position position;
 
+    [HideInInspector]
+    public MovementState currentMovementState;
+
+    public MovementStates movementStates;
+
+    [HideInInspector]
+    public float staggerTime; // Temporary? Should it stay here, or in it's own state instance?
+
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -14,6 +22,8 @@ public class MovementController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         movement.currentVelocity = Vector2.zero;
+        currentMovementState = movementStates.movingState;
+        currentMovementState.Enter(this);
     }
 
     // Update is called once per frame
@@ -23,8 +33,9 @@ public class MovementController : MonoBehaviour
         if (position != null)
         {
             position.position = transform.position;
-
         }
+
+        currentMovementState.Execute(this);
     }
 
     public void Move(Vector2 direction)
@@ -46,23 +57,28 @@ public class MovementController : MonoBehaviour
 
     public void MoveUp()
     {
-        Move(new Vector2(0.0f, 1.0f));
+        currentMovementState.MoveUp(this);
     }
-
     public void MoveDown()
     {
-        Move(new Vector2(0.0f, -1.0f));
+        currentMovementState.MoveDown(this);
 
     }
-
-    public void MoveRight()
-    {
-        Move(new Vector2(1.0f, 0.0f));
-
-    }
-
     public void MoveLeft()
     {
-        Move(new Vector2(-1.0f, 0.0f));
+        currentMovementState.MoveLeft(this);
+
     }
+    public void MoveRight()
+    {
+        currentMovementState.MoveRight(this);
+    }
+
+    public void ChangeState(MovementState newState)
+    {
+        currentMovementState.Exit(this);
+        currentMovementState = newState;
+        newState.Enter(this);
+    }
+
 }

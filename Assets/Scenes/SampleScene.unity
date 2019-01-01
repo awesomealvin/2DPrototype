@@ -258,6 +258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 11400000, guid: 568732befc90026498d883229d748a77, type: 2}
   position: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72, type: 2}
+  currentMovementState: {fileID: 0}
+  movementStates: {fileID: 11400000, guid: 9b611728956fedc43a01d0962ead6605, type: 2}
+  staggerTime: 0
 --- !u!4 &30481087
 Transform:
   m_ObjectHideFlags: 0
