@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615b89fefaa88a24b91417f82f12f4ce, type: 3}
-  m_Name: PlayerMovement
+  m_Script: {fileID: 11500000, guid: 41cd10a9f1274234fb4be7b1b7f8df44, type: 3}
+  m_Name: DashAbility
   m_EditorClassIdentifier: 
-  acceleration: 5
-  maxSpeed: 10
-  linearDrag: 10
-  currentVelocity: {x: 0.005640086, y: -0.0005798019}
+  cooldown: 1
+  duration: 0.15
+  dashForce: 15

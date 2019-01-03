@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615b89fefaa88a24b91417f82f12f4ce, type: 3}
-  m_Name: PlayerMovement
+  m_Script: {fileID: 11500000, guid: ab08c7b95a38e1044b0b62fe190da816, type: 3}
+  m_Name: MousePosition
   m_EditorClassIdentifier: 
-  acceleration: 5
-  maxSpeed: 10
-  linearDrag: 10
-  currentVelocity: {x: 0.005640086, y: -0.0005798019}
+  position: {x: 20.340797, y: 19.940428, z: -10}

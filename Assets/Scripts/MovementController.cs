@@ -15,15 +15,18 @@ public class MovementController : MonoBehaviour
     [HideInInspector]
     public float staggerTime; // Temporary? Should it stay here, or in it's own state instance?
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = movement.linearDrag;
         movement.currentVelocity = Vector2.zero;
         currentMovementState = movementStates.movingState;
         currentMovementState.Enter(this);
+
     }
 
     // Update is called once per frame
@@ -45,7 +48,6 @@ public class MovementController : MonoBehaviour
         direction = Vector2.ClampMagnitude(direction, 1.0f);
 
         Vector2 force = direction * movement.acceleration;
-        Debug.Log(movement.acceleration);
 
         rb.AddForce(force, ForceMode2D.Impulse);
 

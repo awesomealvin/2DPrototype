@@ -30,16 +30,13 @@ public class MovingState : MovementState
 
     public override void Enter(MovementController movementController)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void Execute(MovementController movementController)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void Exit(MovementController movementController)
     {
-        throw new System.NotImplementedException();
     }
 }

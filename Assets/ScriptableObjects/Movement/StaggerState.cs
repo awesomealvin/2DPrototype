@@ -10,12 +10,16 @@ public class StaggerState : MovementState
     public override void Enter(MovementController movementController)
     {
         movementController.staggerTime = maxStaggerTime;
+        // Debug.Log("Entered StaggerState");
     }
 
     public override void Execute(MovementController movementController)
     {
+
         movementController.staggerTime -= Time.deltaTime;
-        if (movementController.staggerTime <= 0.0f)
+        // Debug.Log(movementController.staggerTime);
+
+        if ((movementController.rb.velocity.magnitude < movementController.movement.maxSpeed) || (movementController.staggerTime <= 0.0f))
         {
             movementController.ChangeState(movementController.movementStates.movingState);
         }
@@ -24,6 +28,7 @@ public class StaggerState : MovementState
     public override void Exit(MovementController movementController)
     {
         // Nothing yet?
+        // Debug.Log("Exited StaggerState");
     }
 
     public override void MoveDown(MovementController movementController)
