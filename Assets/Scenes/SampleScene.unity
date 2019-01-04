@@ -1366,13 +1366,13 @@ PrefabInstance:
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 912092050}
-    - target: {fileID: 1012352328625544202, guid: 6167e11d62c30eb4187757418130f5ae,
+    - target: {fileID: 2317644760389536342, guid: 6167e11d62c30eb4187757418130f5ae,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 898317985183790126, guid: 6167e11d62c30eb4187757418130f5ae, type: 3}
+      propertyPath: maxHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: dd33c64cb53e7994fac315a9fb149581,
+        type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6167e11d62c30eb4187757418130f5ae, type: 3}
 --- !u!1001 &3172585043218824082
 PrefabInstance:
@@ -1389,7 +1389,7 @@ PrefabInstance:
     - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}

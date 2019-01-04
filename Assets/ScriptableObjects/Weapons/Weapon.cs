@@ -7,6 +7,8 @@ public abstract class Weapon : ScriptableObject
     public float delay;
     public int damage;
 
+    public float force;
+
     public Sprite damageIndicator;
     public Sprite damageChargeDelayIndicator;
     

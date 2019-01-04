@@ -9,23 +9,43 @@ public class MeleeWeapon : Weapon
 
     public override void Use(WeaponController weaponController)
     {
-        Vector3 position = weaponController.weaponPosition.position;
+        Vector3 weaponPosition = weaponController.weaponPosition.position;
 
         float length = 1.0f;
         float amount = 360.0f / length;
 
         float current = 0.0f;
-        
+
         float hyp = damageRadius;
         for (int i = 0; i < amount; ++i)
         {
             float radians = Mathf.Deg2Rad * current;
             float x = Mathf.Cos(radians) * hyp;
             float y = Mathf.Sin(radians) * hyp;
-            Vector3 end = new Vector3(x + position.x, y + position.y, 0.0f);
-            Debug.DrawLine(position, end, Color.red, 1.0f);
+            Vector3 end = new Vector3(x + weaponPosition.x, y + weaponPosition.y, 0.0f);
+            Debug.DrawLine(weaponPosition, end, Color.red, 1.0f);
 
             current += length;
+        }
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(weaponPosition, damageRadius);
+        Debug.Log("Collider Count = " + colliders.Length);
+        foreach (Collider2D c in colliders)
+        {
+            Debug.Log("Collider Found");
+
+            DamageController damageController = c.gameObject.GetComponentInParent<DamageController>();
+            if (damageController != null)
+            {
+                Debug.Log("Damage Controller Found");
+                Vector2 a = weaponController.transform.position;
+                Vector2 b = damageController.transform.position;
+                Vector2 direction = (b - a).normalized;
+                Vector2 force = direction * this.force;
+                damageController.Damage(damage, force, 1.0f);
+            }
+
+            // Destroy(c.gameObject);
         }
     }
 }
