@@ -40,7 +40,6 @@ public class AbilityController : MonoBehaviour
 
     void Update()
     {
-
         duration -= Time.deltaTime;
         currentCooldown -= Time.deltaTime;
 

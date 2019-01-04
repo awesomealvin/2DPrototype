@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class InputController : MonoBehaviour
     [SerializeField]
     Position mousePosition;
 
+    [SerializeField]
+    WeaponController weaponController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,21 @@ public class InputController : MonoBehaviour
     {
         HandleMousePosition();
         HandleAbility();
+        HandleWeapon();
+    }
+
+    private void HandleWeapon()
+    {
+        if (weaponController == null)
+        {
+            return;
+        }
+
+        if (Input.GetAxisRaw("Fire1") > 0.0f)
+        {
+            weaponController.Use();
+            // Debug.Log("Input Fire1");
+        }
     }
 
     // Update is called once per frame
