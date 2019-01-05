@@ -6,6 +6,9 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     [SerializeField]
+    RotationController rotationController;
+
+    [SerializeField]
     MovementController movementController;
 
     [SerializeField]
@@ -28,6 +31,17 @@ public class InputController : MonoBehaviour
         HandleMousePosition();
         HandleAbility();
         HandleWeapon();
+        HandleRotation();
+    }
+
+    private void HandleRotation()
+    {
+        if (rotationController == null)
+        {
+            return;
+        }
+        rotationController.lookDirection = mousePosition.position;
+
     }
 
     private void HandleWeapon()
@@ -52,12 +66,11 @@ public class InputController : MonoBehaviour
 
     private void HandleMousePosition()
     {
-        if (mousePosition == null || abilityController == null)
+        if (mousePosition == null)
         {
             return;
         }
         mousePosition.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        abilityController.lookDirection = mousePosition.position;
     }
 
     void HandleAbility()
@@ -72,7 +85,6 @@ public class InputController : MonoBehaviour
             abilityController.UseAbility();
         }
     }
-
 
     private void HandleMovementInput()
     {

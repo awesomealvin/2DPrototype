@@ -11,8 +11,8 @@ public class MeleeWeapon : Weapon
     {
         Vector3 weaponPosition = weaponController.weaponPosition.position;
 
-        float length = 1.0f;
-        float amount = 360.0f / length;
+        float amount = 30.0f;
+        float length = 360.0f / amount;
 
         float current = 0.0f;
 

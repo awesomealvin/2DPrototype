@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AbilityController : MonoBehaviour
 {
-    public Vector2 lookDirection;
+    public RotationController rotationController;
+
     public Ability ability;
 
     public Rigidbody2D rb;
@@ -32,7 +33,7 @@ public class AbilityController : MonoBehaviour
                 inUse = true;
                 duration = ability.duration;
                 currentCooldown = ability.cooldown;
-                useDirection = rb.position - (Vector2) lookDirection;
+                useDirection = rb.position - (Vector2) rotationController.lookDirection;
                 // Debug.Log("Used Ability");
             }
         }

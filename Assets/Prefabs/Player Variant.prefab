@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab10c8375a892fa41b4e5c4b04bfe8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationController: {fileID: 1043642838674544902}
   movementController: {fileID: 7505795703576793288}
   abilityController: {fileID: 9099457534573043045}
   mousePosition: {fileID: 11400000, guid: dca264588b0f05344a777a8d795257dd, type: 2}
+  weaponController: {fileID: 0}
 --- !u!1001 &7309184559869725684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,7 +27,7 @@ PrefabInstance:
     - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
@@ -118,5 +120,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 740b9df1b36070a4e806f90dac30ea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1043642838674544902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7715988876176495346, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    type: 3}
+  m_PrefabInstance: {fileID: 7309184559869725684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013167219472894669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37289e51e7d40543b27bf7cdcd91a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 1957012822134380177}
   - component: {fileID: 4991849864512815522}
   - component: {fileID: 3647938129760741135}
+  - component: {fileID: 7715988876176495346}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -321,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740b9df1b36070a4e806f90dac30ea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookDirection: {x: 0, y: 0}
+  rotationController: {fileID: 7715988876176495346}
   ability: {fileID: 11400000, guid: eed110aae0c46494cbb19e5bc8b9dbf2, type: 2}
   rb: {fileID: 0}
   duration: 0
@@ -354,6 +355,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementController: {fileID: 956594690018712380}
   healthController: {fileID: 4991849864512815522}
+--- !u!114 &7715988876176495346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737200199345275193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37289e51e7d40543b27bf7cdcd91a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookDirection: {x: 0, y: 0}
 --- !u!1 &7800090033234384919
 GameObject:
   m_ObjectHideFlags: 0
