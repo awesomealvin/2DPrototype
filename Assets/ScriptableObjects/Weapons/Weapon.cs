@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Weapon : ScriptableObject
 {
+    public LayerMasks layerMasks;
+
     public float delay;
     public int damage;
 
@@ -11,9 +13,7 @@ public abstract class Weapon : ScriptableObject
 
     public Sprite damageIndicator;
     public Sprite damageChargeDelayIndicator;
-    
+
     public abstract void Use(WeaponController weaponController); // TODO: Add parameter WeaponController
 
-
-    
 }

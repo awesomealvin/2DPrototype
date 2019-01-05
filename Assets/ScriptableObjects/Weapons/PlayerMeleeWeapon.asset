@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a594b72358416604d849346b0c07db66, type: 3}
   m_Name: PlayerMeleeWeapon
   m_EditorClassIdentifier: 
+  layerMasks: {fileID: 11400000, guid: 84fbfb2d956151949be3a07cf87d023f, type: 2}
   delay: 1
   damage: 10
   force: 20

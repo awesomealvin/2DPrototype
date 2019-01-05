@@ -482,31 +482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: a4db99341fae05043809dd6773ead87b, type: 2}
   weaponPosition: {fileID: 1576014560}
---- !u!114 &912092051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9099457534573043045, guid: 6167e11d62c30eb4187757418130f5ae,
-    type: 3}
-  m_PrefabInstance: {fileID: 1133275557278595295}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912092049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740b9df1b36070a4e806f90dac30ea77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &912092052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912092049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37289e51e7d40543b27bf7cdcd91a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookDirection: {x: 0, y: 0}
 --- !u!4 &912092054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 100404032428435486, guid: 6167e11d62c30eb4187757418130f5ae,
@@ -525,7 +500,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ba37be7f865d24093a18756addb549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityController: {fileID: 912092051}
+  rotationController: {fileID: 912092059}
+--- !u!114 &912092059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1043642838674544902, guid: 6167e11d62c30eb4187757418130f5ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1133275557278595295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912092049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37289e51e7d40543b27bf7cdcd91a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1086846164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,11 +1127,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9099457534573043045, guid: 6167e11d62c30eb4187757418130f5ae,
-        type: 3}
-      propertyPath: rotationController
-      value: 
-      objectReference: {fileID: 912092052}
     - target: {fileID: 100404032428435486, guid: 6167e11d62c30eb4187757418130f5ae,
         type: 3}
       propertyPath: m_LocalPosition.x

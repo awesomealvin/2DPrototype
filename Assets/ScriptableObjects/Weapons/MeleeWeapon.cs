@@ -28,7 +28,7 @@ public class MeleeWeapon : Weapon
             current += length;
         }
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(weaponPosition, damageRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(weaponPosition, damageRadius, layerMasks.layers);
         Debug.Log("Collider Count = " + colliders.Length);
         foreach (Collider2D c in colliders)
         {
