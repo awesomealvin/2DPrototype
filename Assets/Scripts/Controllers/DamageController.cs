@@ -13,8 +13,7 @@ public class DamageController : MonoBehaviour
     {
         healthController.DeductHealth(health);
 
-        movementController.staggerTime = staggerTime;
-        movementController.ChangeState(movementController.movementStates.staggerState);
+        movementController.Stagger(staggerTime);
 
         movementController.rb.AddForce(force, ForceMode2D.Impulse);
         Debug.Log(force);

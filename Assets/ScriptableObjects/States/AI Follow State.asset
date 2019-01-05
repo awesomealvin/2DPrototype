@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 987d1017f51c9f4408e3d81cfe3dd812, type: 3}
-  m_Name: DefaultMovementStates
+  m_Script: {fileID: 11500000, guid: d646fc6e0e5d45542b9c79019a3851c6, type: 3}
+  m_Name: AI Follow State
   m_EditorClassIdentifier: 
-  movingState: {fileID: 11400000, guid: f278784eef68cdd4584007928c613397, type: 2}
-  staggerState: {fileID: 11400000, guid: 8ecc022918cca2344a1f1fd21b3906f5, type: 2}

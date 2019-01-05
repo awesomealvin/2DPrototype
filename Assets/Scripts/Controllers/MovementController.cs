@@ -8,15 +8,11 @@ public class MovementController : MonoBehaviour
     public Position position;
 
     [HideInInspector]
-    public MovementState currentMovementState;
-
-    public MovementStates movementStates;
-
-    [HideInInspector]
     public float staggerTime; // Temporary? Should it stay here, or in it's own state instance?
+    [HideInInspector]
+    public bool isStaggered;
 
     public Rigidbody2D rb;
-
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +20,6 @@ public class MovementController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.drag = movement.linearDrag;
         movement.currentVelocity = Vector2.zero;
-        currentMovementState = movementStates.movingState;
-        currentMovementState.Enter(this);
 
     }
 
@@ -38,11 +32,37 @@ public class MovementController : MonoBehaviour
             position.position = transform.position;
         }
 
-        currentMovementState.Execute(this);
+        UpdateStagger();
+
+    }
+
+    private void UpdateStagger()
+    {
+        if (!isStaggered)
+        {
+            return;
+        }
+        staggerTime -= Time.deltaTime;
+        // Debug.Log(movementController.staggerTime);
+
+        if ((rb.velocity.magnitude < movement.maxSpeed) || (staggerTime <= 0.0f))
+        {
+            isStaggered = false;
+        }
+    }
+
+    public void Stagger(float staggerTime)
+    {
+        this.staggerTime = staggerTime;
+        this.isStaggered = true;
     }
 
     public void Move(Vector2 direction)
     {
+        if (isStaggered)
+        {
+            return;
+        }
         rb.drag = movement.linearDrag;
 
         direction = Vector2.ClampMagnitude(direction, 1.0f);
@@ -59,28 +79,24 @@ public class MovementController : MonoBehaviour
 
     public void MoveUp()
     {
-        currentMovementState.MoveUp(this);
+        Move(new Vector2(0.0f, 1.0f));
     }
+
     public void MoveDown()
     {
-        currentMovementState.MoveDown(this);
+        Move(new Vector2(0.0f, -1.0f));
 
     }
-    public void MoveLeft()
-    {
-        currentMovementState.MoveLeft(this);
 
-    }
     public void MoveRight()
     {
-        currentMovementState.MoveRight(this);
+        Move(new Vector2(1.0f, 0.0f));
+
     }
 
-    public void ChangeState(MovementState newState)
+    public void MoveLeft()
     {
-        currentMovementState.Exit(this);
-        currentMovementState = newState;
-        newState.Enter(this);
+        Move(new Vector2(-1.0f, 0.0f));
     }
 
 }

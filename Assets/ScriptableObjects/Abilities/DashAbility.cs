@@ -32,7 +32,7 @@ public class DashAbility : Ability
         MovementController movementController = abilityController.GetComponent<MovementController>();
         if (movementController != null)
         {
-            movementController.ChangeState(movementController.movementStates.staggerState);
+            movementController.Stagger(1.0f);
         }
 
     }

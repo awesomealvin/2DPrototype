@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc687a929e632ae489f95fd1f59b6403, type: 3}
-  m_Name: DefaultStaggerState
+  m_Script: {fileID: 11500000, guid: 0c4f2a5aedab0fd46876b3fa2c3c450c, type: 3}
+  m_Name: AI States
   m_EditorClassIdentifier: 
-  maxStaggerTime: 1
+  followPlayerState: {fileID: 11400000, guid: 7648cb810efe4e34ea3785a6ea70172d, type: 2}
