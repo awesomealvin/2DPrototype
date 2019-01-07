@@ -29,15 +29,15 @@ public class MeleeWeapon : Weapon
         }
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(weaponPosition, damageRadius, layerMasks.layers);
-        Debug.Log("Collider Count = " + colliders.Length);
+        // Debug.Log("Collider Count = " + colliders.Length);
         foreach (Collider2D c in colliders)
         {
-            Debug.Log("Collider Found");
+            // Debug.Log("Collider Found");
 
             DamageController damageController = c.gameObject.GetComponentInParent<DamageController>();
             if (damageController != null)
             {
-                Debug.Log("Damage Controller Found");
+                // Debug.Log("Damage Controller Found");
                 Vector2 a = weaponController.transform.position;
                 Vector2 b = damageController.transform.position;
                 Vector2 direction = (b - a).normalized;

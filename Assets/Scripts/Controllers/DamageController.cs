@@ -16,6 +16,6 @@ public class DamageController : MonoBehaviour
         movementController.Stagger(staggerTime);
 
         movementController.rb.AddForce(force, ForceMode2D.Impulse);
-        Debug.Log(force);
+        // Debug.Log(force);
     }
 }
