@@ -20,5 +20,5 @@ MonoBehaviour:
   damageChargeDelayIndicator: {fileID: 0}
   targetRange: 10
   projectile: {fileID: 0}
-  spread: 0
+  spread: 5
   projectileSpeed: 7
