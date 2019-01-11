@@ -32,4 +32,9 @@ public class WeaponController : MonoBehaviour
             currentDelay = weapon.delay;
         }
     }
+
+    public Vector2 GetDirection()
+    {
+        return transform.right;
+    }
 }
