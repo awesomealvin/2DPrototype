@@ -18,4 +18,4 @@ MonoBehaviour:
   force: 20
   damageIndicator: {fileID: 0}
   damageChargeDelayIndicator: {fileID: 0}
-  damageRadius: 1
+  damageRadius: 1.5

@@ -8,6 +8,9 @@ public class WeaponController : MonoBehaviour
 
     public Transform weaponPosition;
 
+    [SerializeField]
+    ParticleSystemController pSystem;
+
     private float currentDelay = -1.0f;
 
     void Start()
@@ -30,6 +33,7 @@ public class WeaponController : MonoBehaviour
         {
             weapon.Use(this);
             currentDelay = weapon.delay;
+            pSystem.EmitWorld(transform.position, transform.parent.eulerAngles.z);
         }
     }
 
