@@ -8,9 +8,6 @@ public class WeaponController : MonoBehaviour
 
     public Transform weaponPosition;
 
-    [SerializeField]
-    ParticleSystemController pSystem;
-
     private float currentDelay = -1.0f;
 
     void Start()

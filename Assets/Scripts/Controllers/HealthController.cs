@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-
     public IntegerVariable maxHealth;
+
+    public GlobalStats playerStats;
     
     [HideInInspector]
     public int currentHealth;

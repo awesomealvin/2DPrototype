@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showMainBehavior: 1
-  showInnerGlowBehavior: 0
+  showInnerGlowBehavior: 1
   rtFormat: 0
   blurShader: {fileID: 4800000, guid: 1855d9636fad3914bacc4a543165c974, type: 3}
   compositeShader: {fileID: 4800000, guid: e384de4389ba527479054baf0ddb1d3e, type: 3}
@@ -371,9 +371,9 @@ MonoBehaviour:
     m_Bits: 4294967295
   glowType: 0
   glowTint: {r: 1, g: 1, b: 1, a: 0}
-  blurSpreadInner: 0.6
+  blurSpreadInner: 0.227
   blurIterations: 5
-  glowIntensityInner: 0.4
+  glowIntensityInner: 1
   samples: 2
 --- !u!1 &666964464
 GameObject:
@@ -1323,7 +1323,7 @@ PrefabInstance:
     - target: {fileID: 5090380016967617997, guid: 0859adb6d20127b41a06d667b032b4bb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5318579083724156702, guid: 0859adb6d20127b41a06d667b032b4bb,
         type: 3}
