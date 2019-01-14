@@ -16,7 +16,7 @@ public class RangeWeapon : Weapon
     public override void Use(WeaponController weaponController)
     {
         // Obtain from object pool
-        ProjectileController o = ObjectPool.singleton.GetProjectile();
+        ProjectileController o = ObjectPool.instance.GetProjectile();
         o.Initialise();
 
         // Set the position

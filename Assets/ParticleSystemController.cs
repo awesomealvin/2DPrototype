@@ -7,29 +7,28 @@ public class ParticleSystemController : MonoBehaviour
     [SerializeField]
     private ParticleSystem pSystem;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public ParticleSystemManager.ParticleType particleType;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void EmitLocal(Transform otherTransform)
+    public void Emit(Transform otherTransform)
     {
         transform.SetParent(otherTransform, false);
-        pSystem.Play(false);
+        
+        // ParticleSystem.EmitParams emitOverrideParams = new ParticleSystem.EmitParams();
+        // emitOverrideParams.applyShapeToPosition = true;
+        // pSystem.Emit(emitOverrideParams, count);
+        pSystem.Play();
     }
 
-    public void EmitWorld(Vector2 position, float angle)
+    public void Emit(Vector2 position, Vector3 rotation)
     {
-        Vector3 originalRotation = transform.eulerAngles;
         transform.position = position;
-        transform.eulerAngles = new Vector3(originalRotation.x, originalRotation.y, angle);
-        pSystem.Play(false);        
+        transform.eulerAngles = rotation;
+
+        // ParticleSystem.EmitParams emitOverrideParams = new ParticleSystem.EmitParams();
+        // emitOverrideParams.applyShapeToPosition = true;
+        // pSystem.Emit(emitOverrideParams, count);
+        pSystem.Play();
     }
+
+
 }

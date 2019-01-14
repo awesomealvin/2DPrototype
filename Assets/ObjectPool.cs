@@ -7,11 +7,11 @@ public class ObjectPool : MonoBehaviour
     public PooledObject projectilePrefab;
     private Queue<ProjectileController> projectilesPool;
 
-    public static ObjectPool singleton;
+    public static ObjectPool instance;
 
     void Awake()
     {
-        singleton = this;
+        instance = this;
     }
     void Start()
     {

@@ -31,9 +31,10 @@ public class WeaponController : MonoBehaviour
         // TODO: Semi-automatic
         if (currentDelay <= 0.0f)
         {
+            Debug.Log(transform.rotation.eulerAngles);
             weapon.Use(this);
             currentDelay = weapon.delay;
-            pSystem.EmitWorld(transform.position, transform.parent.eulerAngles.z);
+            ParticleSystemManager.instance.EmitParticles(ParticleSystemManager.ParticleType.MELEE, transform);
         }
     }
 
