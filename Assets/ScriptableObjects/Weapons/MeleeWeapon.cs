@@ -34,6 +34,12 @@ public class MeleeWeapon : Weapon
         {
             // Debug.Log("Collider Found");
 
+            // Makes sure the "user" doesn't hit itself lul
+            if (weaponController.transform.root == c.transform.root)
+            {
+                continue;
+            }
+
             DamageController damageController = c.gameObject.GetComponentInParent<DamageController>();
             if (damageController != null)
             {

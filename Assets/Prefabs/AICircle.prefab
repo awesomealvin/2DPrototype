@@ -23,10 +23,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 41abf347134347048b16a15cc4f584b3,
+        type: 2}
     - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_Name
-      value: Circle
+      value: AICircle
       objectReference: {fileID: 0}
     - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
@@ -88,11 +94,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
-      propertyPath: movement
+      propertyPath: maxHealth
       value: 
-      objectReference: {fileID: 11400000, guid: 41abf347134347048b16a15cc4f584b3,
+      objectReference: {fileID: 11400000, guid: 1771a036076198642a70e893039b3f68,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}

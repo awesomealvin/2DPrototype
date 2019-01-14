@@ -8,8 +8,7 @@ public class HealthController : MonoBehaviour
 
     public GlobalStats playerStats;
     
-    [HideInInspector]
-    public int currentHealth;
+    private int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,10 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerStats != null)
+        {
+            playerStats.health = currentHealth;
+        }
     }
 
     public void DeductHealth(int amount)

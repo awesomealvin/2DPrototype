@@ -14,6 +14,9 @@ public class Debugger : MonoBehaviour
     [SerializeField]
     TMP_Text[] debugText;
 
+    [SerializeField]
+    GlobalStats playerStats;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class Debugger : MonoBehaviour
 
     void Update()
     {
-        debugText[0].SetText(playerMovement.currentVelocity.magnitude.ToString());
+        debugText[0].text = "Player Health: " + playerStats.health.ToString();
     }
 
     public static Debugger GetInstance()
