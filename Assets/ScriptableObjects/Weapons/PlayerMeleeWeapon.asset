@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerMeleeWeapon
   m_EditorClassIdentifier: 
   layerMasks: {fileID: 11400000, guid: 84fbfb2d956151949be3a07cf87d023f, type: 2}
-  delay: 1
+  delay: 0.1
   damage: 10
   force: 20
   damageIndicator: {fileID: 0}

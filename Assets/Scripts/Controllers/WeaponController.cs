@@ -34,7 +34,7 @@ public class WeaponController : MonoBehaviour
             Debug.Log(transform.rotation.eulerAngles);
             weapon.Use(this);
             currentDelay = weapon.delay;
-            ParticleSystemManager.instance.EmitParticles(ParticleSystemManager.ParticleType.MELEE, transform);
+            ParticleSystemManager.GetInstance().EmitParticles(ParticleSystemManager.ParticleType.MELEE, transform);
         }
     }
 

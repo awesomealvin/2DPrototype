@@ -647,18 +647,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1155924618 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1900450792458265745, guid: 8f67b798bdd115a4dbab9d620608c039,
-    type: 3}
-  m_PrefabInstance: {fileID: 2093247661}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a5dda215016d0409ebb0acf39d15c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1288682798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,85 +1219,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962547354}
   m_CullTransparentMesh: 0
---- !u!1001 &2093247661
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 846912162940815085, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_Name
-      value: MeleeParticles
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912162940815086, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912163476913460, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: autoRandomSeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 846912163476913460, guid: 8f67b798bdd115a4dbab9d620608c039,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8f67b798bdd115a4dbab9d620608c039, type: 3}
 --- !u!1 &2113840948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1459,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pSystem
       value: 
-      objectReference: {fileID: 1155924618}
+      objectReference: {fileID: 0}
     - target: {fileID: 6194985320820756011, guid: 6167e11d62c30eb4187757418130f5ae,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
