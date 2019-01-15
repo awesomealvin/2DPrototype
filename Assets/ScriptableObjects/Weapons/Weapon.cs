@@ -11,6 +11,9 @@ public abstract class Weapon : ScriptableObject
 
     public float force;
 
+    [Range(0, 50)]
+    public float range;
+
     public Sprite damageIndicator;
     public Sprite damageChargeDelayIndicator;
 

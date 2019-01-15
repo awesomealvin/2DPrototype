@@ -12,7 +12,10 @@ public class AIStateController : MonoBehaviour
     public MovementController movementController;
 
     public RotationController rotationController;
-    
+
+    public WeaponController weaponController;
+
+    [HideInInspector]
     public float combatActionDelay;
 
     [HideInInspector]
@@ -29,6 +32,7 @@ public class AIStateController : MonoBehaviour
     {
         currentMovementState = aiStates.followPlayerState;
         currentLookState = aiStates.lookAtState;
+        currentCombatState = aiStates.outOfAttackRangeState;
     }
 
     // Update is called once per frame
@@ -43,5 +47,37 @@ public class AIStateController : MonoBehaviour
         {
             currentLookState.Execute(this);
         }
+
+        HandleWeaponStates();
+
+    }
+
+    private void HandleWeaponStates()
+    {
+
+        if (currentCombatState == null)
+        {
+            return;
+        }
+        currentCombatState.Execute(this);
+
+        if (combatActionDelay >= 0.0f)
+        {
+            combatActionDelay -= Time.deltaTime;
+        }
+
+    }
+
+    public void ChangeCombatState(AIState next)
+    {
+       currentCombatState.Exit(this);
+       currentCombatState = next;
+       currentCombatState.Enter(this);
+    }
+
+    public float DistanceFromPlayer()
+    {
+        Vector2 direction = playerPosition.position - transform.position;
+        return direction.magnitude;
     }
 }

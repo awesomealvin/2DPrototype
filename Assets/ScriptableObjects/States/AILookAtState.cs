@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "AI States/Look States/Look State")]
 public class AILookAtState : AIState
 {
     public float lookSpeed;

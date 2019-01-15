@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followPlayerState: {fileID: 11400000, guid: 7648cb810efe4e34ea3785a6ea70172d, type: 2}
   lookAtState: {fileID: 11400000, guid: 0e6e4b0872eeb014982ea7f545b31703, type: 2}
+  attackState: {fileID: 11400000, guid: e82914cd3de75f94a956785a8a70f54e, type: 2}
+  outOfAttackRangeState: {fileID: 11400000, guid: a6271184ba4fca342bbbb2ee4656cf1e,
+    type: 2}
