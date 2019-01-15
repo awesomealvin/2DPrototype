@@ -16,7 +16,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2, type: 2}
   aiStates: {fileID: 11400000, guid: 95f3f71d06a675f41bc7e1f8c30cc01a, type: 2}
   movementController: {fileID: 2342477623474755528}
-  rotationController: {fileID: 5102600581756296710}
+  rotationController: {fileID: 0}
   combatActionDelay: 0
   currentMovementState: {fileID: 0}
   currentLookState: {fileID: 0}
@@ -105,7 +105,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1771a036076198642a70e893039b3f68,
         type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 1957012822134380177, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: rotationController
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7715988876176495346, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}
 --- !u!1 &5090380016967617997 stripped
 GameObject:
@@ -123,17 +129,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cca64a0fddfc6684687e9d8c4e80ab62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5102600581756296710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7715988876176495346, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-    type: 3}
-  m_PrefabInstance: {fileID: 3297944659075304692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090380016967617997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37289e51e7d40543b27bf7cdcd91a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

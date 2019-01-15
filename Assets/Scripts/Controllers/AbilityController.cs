@@ -33,7 +33,7 @@ public class AbilityController : MonoBehaviour
                 inUse = true;
                 duration = ability.duration;
                 currentCooldown = ability.cooldown;
-                useDirection = rb.position - (Vector2) rotationController.lookDirection;
+                useDirection = -transform.right;
                 // Debug.Log("Used Ability");
             }
         }

@@ -40,7 +40,7 @@ public class InputController : MonoBehaviour
         {
             return;
         }
-        rotationController.lookDirection = mousePosition.position;
+        rotationController.positionToLookAt = mousePosition.position;
 
     }
 
