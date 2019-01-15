@@ -5,26 +5,40 @@ using UnityEngine;
 public class AIStateController : MonoBehaviour
 {
     public Position playerPosition;
+    public GlobalStats playerStats;
 
     public AIStates aiStates;
 
     public MovementController movementController;
+    
+    public float combatActionDelay;
 
     [HideInInspector]
-    public AIState currentState;
+    public AIState currentMovementState;
+
+    [HideInInspector]
+    public AIState currentLookState;
+
+    [HideInInspector]
+    public AIState currentCombatState;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentState = aiStates.followPlayerState;
+        currentMovementState = aiStates.followPlayerState;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentState != null)
+        if (currentMovementState != null)
         {
-            currentState.Execute(this);
+            currentMovementState.Execute(this);
+        }
+
+        if (currentLookState != null)
+        {
+            currentLookState.Execute(this);
         }
     }
 }

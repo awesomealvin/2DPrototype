@@ -4,7 +4,29 @@ using UnityEngine;
 
 public class ParticleSystemManager : MonoBehaviour
 {
-    private static ParticleSystemManager instance;
+    private static ParticleSystemManager _instance;
+    public static ParticleSystemManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                // If Particle System Manager is not in the scene, then create it.
+                // To prevent depenencies for objects using the particle system.
+                GameObject newInstanceGameObject = new GameObject("Particle System Manager");
+                newInstanceGameObject.AddComponent<ParticleSystemManager>();
+                _instance = newInstanceGameObject.GetComponent<ParticleSystemManager>();
+            }
+
+            return _instance;
+        }
+
+        private set
+        {
+            _instance = value;
+        }
+
+    }
 
     [SerializeField]
     private List<ParticleSystemController> particleList;
@@ -16,22 +38,22 @@ public class ParticleSystemManager : MonoBehaviour
         MELEE
     }
 
-    public static ParticleSystemManager GetInstance()
-    {
-        if (instance == null)
-        {
-            // If Particle System Manager is not in the scene, then create it.
-            // To prevent depenencies for objects using the particle system.
-            GameObject newInstanceGameObject = new GameObject("Particle System Manager");
-            newInstanceGameObject.AddComponent<ParticleSystemManager>();
-            instance = newInstanceGameObject.GetComponent<ParticleSystemManager>();
-        }
-        return instance;
-    }
+    // public static ParticleSystemManager GetInstance()
+    // {
+    //     if (instance == null)
+    //     {
+    //         // If Particle System Manager is not in the scene, then create it.
+    //         // To prevent depenencies for objects using the particle system.
+    //         GameObject newInstanceGameObject = new GameObject("Particle System Manager");
+    //         newInstanceGameObject.AddComponent<ParticleSystemManager>();
+    //         instance = newInstanceGameObject.GetComponent<ParticleSystemManager>();
+    //     }
+    //     return instance;
+    // }
 
     void Awake()
     {
-        instance = this;
+        _instance = this;
         particleDictionary = new Dictionary<ParticleType, ParticleSystemController>();
 
         if (particleList == null)
@@ -77,7 +99,7 @@ public class ParticleSystemManager : MonoBehaviour
     private bool DoesKeyExist(ParticleType particleType)
     {
         bool found = false;
-        
+
         if (particleDictionary.ContainsKey(particleType))
         {
             found = true;

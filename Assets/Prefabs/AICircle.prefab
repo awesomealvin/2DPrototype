@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72, type: 2}
+  playerStats: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2, type: 2}
   aiStates: {fileID: 11400000, guid: 95f3f71d06a675f41bc7e1f8c30cc01a, type: 2}
   movementController: {fileID: 2342477623474755528}
-  currentState: {fileID: 0}
+  combatActionDelay: 0
+  currentMovementState: {fileID: 0}
+  currentLookState: {fileID: 0}
+  currentCombatState: {fileID: 0}
 --- !u!1001 &3297944659075304692
 PrefabInstance:
   m_ObjectHideFlags: 0
