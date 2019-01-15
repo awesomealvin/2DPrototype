@@ -6,4 +6,6 @@ using UnityEngine;
 public class AIStates : ScriptableObject
 {
     public AIState followPlayerState;
+
+    public AIState lookAtState;
 }

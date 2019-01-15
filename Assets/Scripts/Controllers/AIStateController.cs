@@ -10,6 +10,8 @@ public class AIStateController : MonoBehaviour
     public AIStates aiStates;
 
     public MovementController movementController;
+
+    public RotationController rotationController;
     
     public float combatActionDelay;
 
@@ -26,6 +28,7 @@ public class AIStateController : MonoBehaviour
     void Start()
     {
         currentMovementState = aiStates.followPlayerState;
+        currentLookState = aiStates.lookAtState;
     }
 
     // Update is called once per frame
