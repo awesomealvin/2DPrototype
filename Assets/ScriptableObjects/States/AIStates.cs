@@ -12,4 +12,7 @@ public class AIStates : ScriptableObject
     public AIState attackState;
 
     public AIState outOfAttackRangeState;
+
+    public AIState stationaryState;
+
 }

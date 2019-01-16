@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff52ceb1ea50767498b19fb330dd1170, type: 3}
   m_Name: AI Default Attack State
   m_EditorClassIdentifier: 
-  actionDelay: 0.25
+  actionDelay: 0.5

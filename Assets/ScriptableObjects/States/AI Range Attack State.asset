@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cd10a9f1274234fb4be7b1b7f8df44, type: 3}
-  m_Name: DashAbility
+  m_Script: {fileID: 11500000, guid: 474d5cc1b7badf949a209021e9e4ce00, type: 3}
+  m_Name: AI Range Attack State
   m_EditorClassIdentifier: 
-  cooldown: 1
-  duration: 0.3
-  damage: 25
-  dashForce: 120
-  damageForce: 30
+  actionDelay: 0.5
+  disengageRange: 15

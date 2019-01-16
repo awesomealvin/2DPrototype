@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class DashAbility : Ability
 {
+    public int damage;
     public float dashForce;
+    public float damageForce;
 
     public override void Execute(AbilityController abilityController)
     {
@@ -27,7 +29,16 @@ public class DashAbility : Ability
 
     public override void OnCollisionEnterEvent(AbilityController abilityController, Collision2D other)
     {
-
+        if (other.gameObject.CompareTag("Circle"))
+        {
+            DamageController damageController = other.gameObject.GetComponent<DamageController>();
+            if (damageController != null)
+            {
+                Vector2 direction = damageController.transform.position - abilityController.transform.position;
+                Vector2 force = direction * damageForce;
+                damageController.Damage(damage, force, 1.0f);
+            }
+        }
     }
 
     public override void Use(AbilityController abilityController)

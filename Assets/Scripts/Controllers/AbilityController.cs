@@ -77,6 +77,10 @@ public class AbilityController : MonoBehaviour
 
     public void CollisionEnter2DEvent(Collision2D other)
     {
+        if (!inUse)
+        {
+            return;
+        }
         if (ability != null)
         {
             ability.OnCollisionEnterEvent(this, other);

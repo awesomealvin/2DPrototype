@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI States/Combat/Attack State")]
-public class AIAttackState : AIState
+[CreateAssetMenu(menuName = "AI States/Combat/Range Attack State")]
+public class AIRangeAttackState : AIState
 {
     public float actionDelay;
 
+    public float disengageRange;
+
     public override void Enter(AIStateController aiStateController)
     {
-        Debug.Log("Entered Attack State");
         aiStateController.combatActionDelay = actionDelay;
+        aiStateController.ChangeMovementState(aiStateController.aiStates.stationaryState);
     }
 
     public override void Execute(AIStateController aiStateController)
     {
         WeaponController weaponController = aiStateController.weaponController;
 
-        if (aiStateController.DistanceFromPlayer() > weaponController.weapon.range)
+        if (aiStateController.DistanceFromPlayer() > disengageRange)
         {
             aiStateController.ChangeCombatState(aiStateController.aiStates.outOfAttackRangeState);
         }
@@ -30,7 +32,7 @@ public class AIAttackState : AIState
 
     public override void Exit(AIStateController aiStateController)
     {
-
+        aiStateController.ChangeMovementState(aiStateController.aiStates.followPlayerState);
     }
 
 }

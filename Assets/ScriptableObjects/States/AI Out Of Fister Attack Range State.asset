@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cd10a9f1274234fb4be7b1b7f8df44, type: 3}
-  m_Name: DashAbility
+  m_Script: {fileID: 11500000, guid: b18618dd6398db1439f3c124dcafb459, type: 3}
+  m_Name: AI Out Of Fister Attack Range State
   m_EditorClassIdentifier: 
-  cooldown: 1
-  duration: 0.3
-  damage: 25
-  dashForce: 120
-  damageForce: 30
+  attackRange: 2

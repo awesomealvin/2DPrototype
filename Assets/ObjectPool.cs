@@ -101,4 +101,9 @@ public class ObjectPool : MonoBehaviour
         return GetObject<ProjectileController>(projectilesPool, projectilePrefab.prefab);
     }
 
+    public void AddProjectileToQueue(ProjectileController projectile)
+    {
+        projectilesPool.Enqueue(projectile);
+    }
+
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI States/Combat/Out of Attack Range")]
 public class AIOutOfAttackRangeState : AIState
 {
+
+    public float attackRange;
+
     public override void Enter(AIStateController aiStateController)
     {
 
@@ -12,7 +15,7 @@ public class AIOutOfAttackRangeState : AIState
 
     public override void Execute(AIStateController aiStateController)
     {
-        if (aiStateController.DistanceFromPlayer() <= aiStateController.weaponController.weapon.range)
+        if (aiStateController.DistanceFromPlayer() <= attackRange)
         {
             // Debug.Log("Changed State");
             aiStateController.ChangeCombatState(aiStateController.aiStates.attackState);

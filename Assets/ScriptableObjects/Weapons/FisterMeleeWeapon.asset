@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FisterMeleeWeapon
   m_EditorClassIdentifier: 
   layerMasks: {fileID: 11400000, guid: 84fbfb2d956151949be3a07cf87d023f, type: 2}
-  delay: 0.5
+  delay: 1
   damage: 10
   force: 20
-  range: 3
+  range: 2
   damageIndicator: {fileID: 0}
   damageChargeDelayIndicator: {fileID: 0}
-  damageRadius: 1.5
+  damageRadius: 1.25

@@ -5,19 +5,20 @@ using UnityEngine;
 [CreateAssetMenu]
 public class RangeWeapon : Weapon
 {
-    public float targetRange;
-
-    public GameObject projectile;
+    // public GameObject projectile;
 
     public float spread;
 
     public float projectileSpeed;
 
+    public float projectileDuration;
+
+
     public override void Use(WeaponController weaponController)
     {
         // Obtain from object pool
         ProjectileController o = ObjectPool.instance.GetProjectile();
-        o.Initialise();
+        o.Initialise(damage, projectileDuration);
 
         // Set the position
         o.transform.position = weaponController.weaponPosition.position;

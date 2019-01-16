@@ -11,11 +11,10 @@ public abstract class Weapon : ScriptableObject
 
     public float force;
 
-    [Range(0, 50)]
     public float range;
 
-    public Sprite damageIndicator;
-    public Sprite damageChargeDelayIndicator;
+    // public Sprite damageIndicator;
+    // public Sprite damageChargeDelayIndicator;
 
     public abstract void Use(WeaponController weaponController); // TODO: Add parameter WeaponController
 

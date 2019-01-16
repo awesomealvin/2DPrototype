@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c4f2a5aedab0fd46876b3fa2c3c450c, type: 3}
-  m_Name: AI States
+  m_Name: Shooter AI States
   m_EditorClassIdentifier: 
   followPlayerState: {fileID: 11400000, guid: 7648cb810efe4e34ea3785a6ea70172d, type: 2}
   lookAtState: {fileID: 11400000, guid: 0e6e4b0872eeb014982ea7f545b31703, type: 2}
-  attackState: {fileID: 11400000, guid: e82914cd3de75f94a956785a8a70f54e, type: 2}
-  outOfAttackRangeState: {fileID: 11400000, guid: a6271184ba4fca342bbbb2ee4656cf1e,
+  attackState: {fileID: 11400000, guid: 5c67927a986a69d4aa28a583df049045, type: 2}
+  outOfAttackRangeState: {fileID: 11400000, guid: 14853ad909705a845b87f08e1ed46f6b,
     type: 2}
+  stationaryState: {fileID: 11400000, guid: b23ae11453f110645827275bdbc7ee0f, type: 2}

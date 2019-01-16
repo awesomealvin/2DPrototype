@@ -82,6 +82,13 @@ public class AIStateController : MonoBehaviour
        currentCombatState.Enter(this);
     }
 
+    public void ChangeMovementState(AIState next)
+    {
+        currentMovementState.Exit(this);
+        currentMovementState = next;
+        currentMovementState.Enter(this);
+    }
+
     public float DistanceFromPlayer()
     {
         Vector2 direction = playerPosition.position - transform.position;

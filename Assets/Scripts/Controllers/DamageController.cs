@@ -11,6 +11,7 @@ public class DamageController : MonoBehaviour
     // [SerializeField]
     // private ParticleType onDamageParticleType;
 
+
     [SerializeField]
     private ParticleSystemController onHitDamageParticles;
 
