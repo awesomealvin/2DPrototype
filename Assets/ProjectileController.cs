@@ -8,21 +8,29 @@ public class ProjectileController : RespawnableObject
     public Rigidbody2D rb;
 
     [HideInInspector]
-    public float damage;
+    public int damage;
 
     [HideInInspector]
     public float duration;
+
+    [HideInInspector]
+    public Transform owner;
+
+    [HideInInspector]
+    public float force;
 
     public override void Initialise()
     {
         rb.velocity = Vector2.zero;
     }
 
-    public void Initialise(float damage, float duration)
+    public void Initialise(int damage, float duration, float force, Transform owner)
     {
         Initialise();
         this.damage = damage;
         this.duration = duration;
+        this.owner = owner;
+        this.force = force;
     }
 
     void Awake()
@@ -53,6 +61,30 @@ public class ProjectileController : RespawnableObject
         {
             ObjectPool.instance.AddProjectileToQueue(this);
             gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Debug.Log("Touched: " +other.name);
+
+        if (other.transform.parent == owner)
+        {
+            // Debug.Log("Tocuhed Owner");
+            return;
+        }
+        if (other.transform.parent.gameObject.CompareTag("Circle"))
+        {
+            // Debug.Log("Touched other");
+
+            DamageController damageController = other.transform.parent.GetComponent<DamageController>();
+            if (damageController != null)
+            {
+                Vector2 direction = transform.position - damageController.transform.position;
+                Vector2 newForce = direction * force;
+                damageController.Damage(damage, -newForce, 1.0f);
+            }
+
         }
     }
 }

@@ -18,7 +18,7 @@ public class RangeWeapon : Weapon
     {
         // Obtain from object pool
         ProjectileController o = ObjectPool.instance.GetProjectile();
-        o.Initialise(damage, projectileDuration);
+        o.Initialise(damage, projectileDuration, force, weaponController.transform.parent);
 
         // Set the position
         o.transform.position = weaponController.weaponPosition.position;

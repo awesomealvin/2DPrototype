@@ -89,6 +89,7 @@ public class AIStateController : MonoBehaviour
         currentMovementState.Enter(this);
     }
 
+    // TODO: Optimize using Vector2.sqrMagnitude
     public float DistanceFromPlayer()
     {
         Vector2 direction = playerPosition.position - transform.position;
