@@ -18,6 +18,9 @@ public class AbilityController : MonoBehaviour
     [SerializeField]
     public MovementController movementController;
 
+    [SerializeField]
+    public ParticleSystemController particleSystemController;
+
     void Start()
     {
         if (rb == null)
@@ -33,11 +36,12 @@ public class AbilityController : MonoBehaviour
         {
             if (!inUse)
             {
-                ability.Use(this);
-                inUse = true;
                 duration = ability.duration;
                 currentCooldown = ability.cooldown;
                 useDirection = -transform.right;
+                ability.Use(this);
+                inUse = true;
+
                 // Debug.Log("Used Ability");
             }
         }
@@ -45,22 +49,32 @@ public class AbilityController : MonoBehaviour
 
     void Update()
     {
-        duration -= Time.deltaTime;
         currentCooldown -= Time.deltaTime;
 
         // Execution (overtime)
         if (inUse)
         {
             ability.Execute(this);
+
+            duration -= Time.deltaTime;
+
+            if (duration <= 0.0f)
+            {
+                ability.Exit(this);
+                inUse = false;
+            }
         }
-        if (duration <= 0.0f)
+
+    }
+
+    void FixedUpdate()
+    {
+        if (inUse)
         {
-            ability.Exit(this);
-            inUse = false;
+            ability.ExecuteFixed(this);
         }
     }
 
-    
     public void CollisionEnter2DEvent(Collision2D other)
     {
         if (ability != null)
@@ -69,5 +83,21 @@ public class AbilityController : MonoBehaviour
         }
     }
 
-    
+    public void PlayParticles()
+    {
+        if (particleSystemController != null)
+        {
+            particleSystemController.Play();
+        }
+
+    }
+
+    public void StopParticles()
+    {
+        if (particleSystemController != null)
+        {
+            particleSystemController.Stop();
+        }
+    }
+
 }

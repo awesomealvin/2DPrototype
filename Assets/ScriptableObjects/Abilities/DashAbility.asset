@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DashAbility
   m_EditorClassIdentifier: 
   cooldown: 1
-  duration: 0.15
-  dashForce: 15
+  duration: 0.3
+  dashForce: 120

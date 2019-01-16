@@ -66,7 +66,7 @@ public class ParticleSystemManager : MonoBehaviour
     {
         foreach (ParticleSystemController p in particleList)
         {
-            particleDictionary.Add(p.particleType, p);
+            // particleDictionary.Add(p.particleType, p);
         }
     }
 

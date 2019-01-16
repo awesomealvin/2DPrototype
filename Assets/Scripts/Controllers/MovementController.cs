@@ -45,7 +45,12 @@ public class MovementController : MonoBehaviour
         staggerTime -= Time.deltaTime;
         // Debug.Log(movementController.staggerTime);
 
-        if ((rb.velocity.magnitude < movement.maxSpeed) || (staggerTime <= 0.0f))
+        // if ((staggerTime <= 0.0f))
+        // {
+        //     isStaggered = false;
+        // }
+
+         if ((rb.velocity.magnitude < movement.maxSpeed) || (staggerTime <= 0.0f))
         {
             isStaggered = false;
         }

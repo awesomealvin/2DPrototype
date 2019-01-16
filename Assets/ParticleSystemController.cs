@@ -7,7 +7,7 @@ public class ParticleSystemController : MonoBehaviour
     [SerializeField]
     private ParticleSystem pSystem;
 
-    public ParticleType.ParticleTypes particleType;
+    // public ParticleType.ParticleTypes particleType;
 
     // Won't need this unless using the optimization (see trello board)
     public void Emit(Transform otherTransform)
@@ -17,7 +17,7 @@ public class ParticleSystemController : MonoBehaviour
         // ParticleSystem.EmitParams emitOverrideParams = new ParticleSystem.EmitParams();
         // emitOverrideParams.applyShapeToPosition = true;
         // pSystem.Emit(emitOverrideParams, count);
-        Debug.Log(particleType + "HEllo?");
+        // Debug.Log(particleType + "HEllo?");
         pSystem.Play();
     }
 
@@ -36,6 +36,16 @@ public class ParticleSystemController : MonoBehaviour
     public void Play()
     {
         pSystem.Play();
+    }
+
+    public void Stop()
+    {
+        pSystem.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+    }
+
+    public void EnableEmission()
+    {
+        // pSystem.emission.
     }
 
 
