@@ -24,12 +24,17 @@ public class DashAbility : Ability
     {
     }
 
+    public override void OnCollisionEnterEvent(AbilityController abilityController, Collision2D other)
+    {
+
+    }
+
     public override void Use(AbilityController abilityController)
     {
        
         abilityController.rb.velocity = Vector2.zero;
         // Change Movement State
-        MovementController movementController = abilityController.GetComponent<MovementController>();
+        MovementController movementController = abilityController.movementController;
         if (movementController != null)
         {
             movementController.Stagger(1.0f);

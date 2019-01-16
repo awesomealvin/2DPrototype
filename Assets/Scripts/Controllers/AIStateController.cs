@@ -27,6 +27,9 @@ public class AIStateController : MonoBehaviour
     [HideInInspector]
     public AIState currentCombatState;
 
+    [SerializeField]
+    private bool doNothing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,10 @@ public class AIStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (doNothing)
+        {
+            return;
+        }
         if (currentMovementState != null)
         {
             currentMovementState.Execute(this);

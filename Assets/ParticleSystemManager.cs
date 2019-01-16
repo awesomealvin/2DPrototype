@@ -31,12 +31,7 @@ public class ParticleSystemManager : MonoBehaviour
     [SerializeField]
     private List<ParticleSystemController> particleList;
 
-    private Dictionary<ParticleType, ParticleSystemController> particleDictionary;
-
-    public enum ParticleType
-    {
-        MELEE
-    }
+    private Dictionary<ParticleType.ParticleTypes, ParticleSystemController> particleDictionary;
 
     // public static ParticleSystemManager GetInstance()
     // {
@@ -54,7 +49,7 @@ public class ParticleSystemManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        particleDictionary = new Dictionary<ParticleType, ParticleSystemController>();
+        particleDictionary = new Dictionary<ParticleType.ParticleTypes, ParticleSystemController>();
 
         if (particleList == null)
         {
@@ -75,7 +70,7 @@ public class ParticleSystemManager : MonoBehaviour
         }
     }
 
-    public void EmitParticles(ParticleType particleType, Transform otherTransform)
+    public void EmitParticles(ParticleType.ParticleTypes particleType, Transform otherTransform)
     {
         if (DoesKeyExist(particleType))
         {
@@ -86,7 +81,7 @@ public class ParticleSystemManager : MonoBehaviour
 
     }
 
-    public void EmitParticles(ParticleType particleType, Vector2 position, Vector3 rotation)
+    public void EmitParticles(ParticleType.ParticleTypes particleType, Vector2 position, Vector3 rotation)
     {
         if (DoesKeyExist(particleType))
         {
@@ -96,7 +91,7 @@ public class ParticleSystemManager : MonoBehaviour
 
     }
 
-    private bool DoesKeyExist(ParticleType particleType)
+    private bool DoesKeyExist(ParticleType.ParticleTypes particleType)
     {
         bool found = false;
 

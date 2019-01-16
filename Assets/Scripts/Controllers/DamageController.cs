@@ -8,6 +8,12 @@ public class DamageController : MonoBehaviour
 
     public HealthController healthController;
 
+    // [SerializeField]
+    // private ParticleType onDamageParticleType;
+
+    [SerializeField]
+    private ParticleSystemController onHitDamageParticles;
+
 
     public void Damage(int health, Vector2 force, float staggerTime)
     {
@@ -17,5 +23,11 @@ public class DamageController : MonoBehaviour
 
         movementController.rb.AddForce(force, ForceMode2D.Impulse);
         // Debug.Log(force);
+
+        // Apply particle effects
+        if (onHitDamageParticles != null)
+        {
+            onHitDamageParticles.Play();
+        }
     }
 }

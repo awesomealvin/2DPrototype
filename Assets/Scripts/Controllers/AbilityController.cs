@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AbilityController : MonoBehaviour
 {
-    public RotationController rotationController;
-
     public Ability ability;
 
     public Rigidbody2D rb;
@@ -17,9 +15,15 @@ public class AbilityController : MonoBehaviour
 
     private bool inUse = false;
 
+    [SerializeField]
+    public MovementController movementController;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            rb = transform.parent.GetComponent<Rigidbody2D>();
+        }
         // duration = 0.0f;
     }
 
@@ -55,4 +59,15 @@ public class AbilityController : MonoBehaviour
             inUse = false;
         }
     }
+
+    
+    public void CollisionEnter2DEvent(Collision2D other)
+    {
+        if (ability != null)
+        {
+            ability.OnCollisionEnterEvent(this, other);
+        }
+    }
+
+    
 }

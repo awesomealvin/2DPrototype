@@ -10,6 +10,9 @@ public class WeaponController : MonoBehaviour
 
     private float currentDelay = -1.0f;
 
+    [SerializeField]
+    private ParticleSystemController weaponUseEffect;
+
     void Start()
     {
 
@@ -31,7 +34,11 @@ public class WeaponController : MonoBehaviour
             // Debug.Log(transform.rotation.eulerAngles);
             weapon.Use(this);
             currentDelay = weapon.delay;
-            ParticleSystemManager.instance.EmitParticles(ParticleSystemManager.ParticleType.MELEE, transform);
+            
+            if (weaponUseEffect != null)
+            {
+                weaponUseEffect.Play();
+            }
         }
     }
 
