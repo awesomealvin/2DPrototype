@@ -91,7 +91,7 @@ Transform:
   - {fileID: 1867292747684430845}
   - {fileID: 1591087606360115424}
   m_Father: {fileID: 7209071471416042474}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2357608937382503125
 MonoBehaviour:
@@ -192,9 +192,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1717815023714984711}
   - component: {fileID: 3501112144110929375}
+  - component: {fileID: 4540644160169724610}
   m_Layer: 0
   m_Name: circle
-  m_TagString: Untagged
+  m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +212,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 7209071471416042474}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3501112144110929375
 SpriteRenderer:
@@ -261,6 +262,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &4540644160169724610
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267187152940610213}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.75
 --- !u!1 &4496884682922598637
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,55 +306,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7209071471416042474}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4757852071257291246
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9205880125744672710}
-  - component: {fileID: 7738285552370046974}
-  m_Layer: 8
-  m_Name: Hitbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9205880125744672710
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4757852071257291246}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7209071471416042474}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7738285552370046974
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4757852071257291246}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.75
 --- !u!1 &6211273097779536211
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +373,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3764271059463161871}
-  - {fileID: 9205880125744672710}
   - {fileID: 1717815023714984711}
   - {fileID: 2278517568952107621}
   - {fileID: 4899336468170277977}
@@ -461,8 +430,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4998ccb04e486544080f18995ac71ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleController: {fileID: 0}
   maxHealth: {fileID: 11400000, guid: 30eeac5e0371e05499081232478f12ea, type: 2}
   playerStats: {fileID: 0}
+  isDead: 0
+  deathTimer: {fileID: 0}
+  currentDeathTimer: 0
+  aliveState: {fileID: 11400000, guid: f77f3c74fd2c4c344a2f30deedc245f0, type: 2}
+  deathState: {fileID: 0}
+  circleRender: {fileID: 3267187152940610213}
 --- !u!114 &3647938129760741135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,7 +671,7 @@ Transform:
   m_Children:
   - {fileID: 1479590444403458816}
   m_Father: {fileID: 7209071471416042474}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8025175680812886544
 MonoBehaviour:
@@ -801,6 +777,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4899336468170277977}
     m_Modifications:
+    - target: {fileID: 6499542293197037365, guid: a8fff3347a20da74db28af61dd65bd04,
+        type: 3}
+      propertyPath: m_Name
+      value: Dash Particle Effect
+      objectReference: {fileID: 0}
     - target: {fileID: 5772156379396555837, guid: a8fff3347a20da74db28af61dd65bd04,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -855,11 +836,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499542293197037365, guid: a8fff3347a20da74db28af61dd65bd04,
-        type: 3}
-      propertyPath: m_Name
-      value: Dash Particle Effect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8fff3347a20da74db28af61dd65bd04, type: 3}

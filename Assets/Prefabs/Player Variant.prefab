@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityController: {fileID: 734181720755708388}
+--- !u!114 &1440494528533287485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013167219472894669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e9f014393741244ad3d73ca145a75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 2317644760389536342}
+  aiStateController: {fileID: 0}
+  movementController: {fileID: 7505795703576793288}
 --- !u!114 &6488046583111064209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,28 +146,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: a4db99341fae05043809dd6773ead87b,
-        type: 2}
-    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+      propertyPath: m_Name
+      value: Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647938129760741135, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
-      propertyPath: weaponUseEffect
+      propertyPath: onHitDamageParticles
       value: 
-      objectReference: {fileID: 6003379290594179150}
+      objectReference: {fileID: 6257655439996556901}
     - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: position
       value: 
       objectReference: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72,
         type: 2}
-    - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: m_Name
-      value: Player Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -220,11 +229,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2,
         type: 2}
-    - target: {fileID: 3647938129760741135, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
-      propertyPath: onHitDamageParticles
+      propertyPath: circleController
       value: 
-      objectReference: {fileID: 6257655439996556901}
+      objectReference: {fileID: 1440494528533287485}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: deathState
+      value: 
+      objectReference: {fileID: 11400000, guid: 8621be38cc0a5df489415d363373bc5b,
+        type: 2}
+    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a4db99341fae05043809dd6773ead87b,
+        type: 2}
+    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: weaponUseEffect
+      value: 
+      objectReference: {fileID: 6003379290594179150}
     - target: {fileID: 3501112144110929375, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -263,6 +289,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cca64a0fddfc6684687e9d8c4e80ab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2317644760389536342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    type: 3}
+  m_PrefabInstance: {fileID: 7309184559869725684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013167219472894669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4998ccb04e486544080f18995ac71ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1043642838674544902 stripped

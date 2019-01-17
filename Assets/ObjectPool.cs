@@ -7,7 +7,11 @@ public class ObjectPool : MonoBehaviour
     public PooledObject projectilePrefab;
     private Queue<ProjectileController> projectilesPool;
 
-    
+    public PooledObject fisterPrefab;
+    private Queue<CircleController> fisterPool;
+
+    public PooledObject shooterPrefab;
+    private Queue<CircleController> shooterPool; 
 
     public static ObjectPool instance;
 
@@ -23,6 +27,10 @@ public class ObjectPool : MonoBehaviour
     private void Initialise()
     {
         projectilesPool = CreatePool<ProjectileController>(projectilePrefab);
+
+        fisterPool = CreatePool<CircleController>(fisterPrefab);
+
+        shooterPool = CreatePool<CircleController>(shooterPrefab);
     }
 
     /// <summary>
@@ -31,7 +39,7 @@ public class ObjectPool : MonoBehaviour
     /// <param name="pooledObject"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    private Queue<T> CreatePool<T>(PooledObject pooledObject) where T : RespawnableObject
+    private Queue<T> CreatePool<T>(PooledObject pooledObject) where T : MonoBehaviour
     {
         Queue<T> pool = new Queue<T>();
 
@@ -64,7 +72,7 @@ public class ObjectPool : MonoBehaviour
     /// <param name="prefab"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    private T InstantiateObject<T>(Queue<T> pool, GameObject prefab) where T : RespawnableObject
+    private T InstantiateObject<T>(Queue<T> pool, GameObject prefab) where T : MonoBehaviour
     {
         GameObject obj = GameObject.Instantiate(prefab, new Vector3(-20.0f, -20.0f, -20.0f), Quaternion.identity, transform);
         T objType = obj.GetComponent<T>();
@@ -79,7 +87,7 @@ public class ObjectPool : MonoBehaviour
     /// <param name="prefab"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    private T GetObject<T>(Queue<T> pool, GameObject prefab) where T : RespawnableObject
+    private T GetObject<T>(Queue<T> pool, GameObject prefab) where T : MonoBehaviour
     {
         T obj;
 
@@ -107,5 +115,27 @@ public class ObjectPool : MonoBehaviour
     {
         projectilesPool.Enqueue(projectile);
     }
+
+    public CircleController GetFister()
+    {
+        return GetObject<CircleController>(fisterPool, fisterPrefab.prefab);
+    }
+
+    public void AddFisterToPool(CircleController fister)
+    {
+        fisterPool.Enqueue(fister);
+    }
+
+    public CircleController GetShooter()
+    {
+        return GetObject<CircleController>(shooterPool, shooterPrefab.prefab);
+    }
+
+    public void AddShooterToPool(CircleController shooter)
+    {
+        shooterPool.Enqueue(shooter);
+    }
+
+    
 
 }

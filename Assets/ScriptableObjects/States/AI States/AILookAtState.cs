@@ -16,6 +16,7 @@ public class AILookAtState : AIState
     {
         Transform myTransform = aiStateController.transform;
         Vector2 playerPosition = aiStateController.playerPosition.position;
+        // Debug.Log(playerPosition);
         Vector2 currentPosition = myTransform.position;
 
         Vector2 direction = (playerPosition - currentPosition).normalized;
@@ -23,7 +24,6 @@ public class AILookAtState : AIState
 
         myTransform.right = Vector2.Lerp(currentDirection, direction, lookSpeed * Time.deltaTime);
         
-
         // Debug.Log(myTransform.right.normalized);
 
     }

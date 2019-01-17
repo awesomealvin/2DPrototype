@@ -8,19 +8,31 @@ public class MovementController : MonoBehaviour
     public Position position;
 
     [HideInInspector]
-    public float staggerTime; // Temporary? Should it stay here, or in it's own state instance?
+    public float staggerTime; 
     [HideInInspector]
     public bool isStaggered;
 
     public Rigidbody2D rb;
 
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
+        Initialise();
+    }
+
+    public void Initialise()
+    {
         rb.drag = movement.linearDrag;
         movement.currentVelocity = Vector2.zero;
 
+        staggerTime = 0.0f;
+        isStaggered = false;
     }
 
     // Update is called once per frame
@@ -50,7 +62,7 @@ public class MovementController : MonoBehaviour
         //     isStaggered = false;
         // }
 
-         if ((rb.velocity.magnitude < movement.maxSpeed) || (staggerTime <= 0.0f))
+        if ((rb.velocity.magnitude < movement.maxSpeed) || (staggerTime <= 0.0f))
         {
             isStaggered = false;
         }

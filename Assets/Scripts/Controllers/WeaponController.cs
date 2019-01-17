@@ -13,9 +13,14 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private ParticleSystemController weaponUseEffect;
 
+    public void Initialise()
+    {
+        currentDelay = -1.0f;
+    }
+
     void Start()
     {
-
+        Initialise();
     }
 
     void Update()

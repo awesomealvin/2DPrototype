@@ -16,13 +16,27 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2, type: 2}
   aiStates: {fileID: 11400000, guid: 95f3f71d06a675f41bc7e1f8c30cc01a, type: 2}
   movementController: {fileID: 2342477623474755528}
-  rotationController: {fileID: 0}
   weaponController: {fileID: 969206202312224289}
+  healthController: {fileID: 7530645510375001430}
   combatActionDelay: 0
   currentMovementState: {fileID: 0}
   currentLookState: {fileID: 0}
   currentCombatState: {fileID: 0}
-  doNothing: 0
+--- !u!114 &1064259340131948691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090380016967617997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e9f014393741244ad3d73ca145a75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 7530645510375001430}
+  aiStateController: {fileID: 417125424}
+  movementController: {fileID: 2342477623474755528}
 --- !u!1001 &3297944659075304692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30,28 +44,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: a16fc69f808e7074a81c4f4530efc69b,
-        type: 2}
-    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: weaponUseEffect
-      value: 
+      propertyPath: m_Name
+      value: Fister
       objectReference: {fileID: 0}
+    - target: {fileID: 3647938129760741135, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: onHitDamageParticles
+      value: 
+      objectReference: {fileID: 8009322512702450342}
     - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: movement
       value: 
       objectReference: {fileID: 11400000, guid: 41abf347134347048b16a15cc4f584b3,
         type: 2}
-    - target: {fileID: 7737200199345275193, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: m_Name
-      value: AICircle
-      objectReference: {fileID: 0}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -109,15 +117,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
+      propertyPath: circleController
+      value: 
+      objectReference: {fileID: 1064259340131948691}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
       propertyPath: maxHealth
       value: 
       objectReference: {fileID: 11400000, guid: 1771a036076198642a70e893039b3f68,
         type: 2}
-    - target: {fileID: 3647938129760741135, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
-      propertyPath: onHitDamageParticles
+      propertyPath: deathState
       value: 
-      objectReference: {fileID: 8009322512702450342}
+      objectReference: {fileID: 11400000, guid: 0e4e68bc9b910bb47ac52976f63084d0,
+        type: 2}
+    - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a16fc69f808e7074a81c4f4530efc69b,
+        type: 2}
     - target: {fileID: 3501112144110929375, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -142,6 +162,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cca64a0fddfc6684687e9d8c4e80ab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7530645510375001430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+    type: 3}
+  m_PrefabInstance: {fileID: 3297944659075304692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090380016967617997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4998ccb04e486544080f18995ac71ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &969206202312224289 stripped
@@ -228,31 +260,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876879292660060229, guid: 6af8a1c8a3b512e418b976353a1c54b9,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876879292660060229, guid: 6af8a1c8a3b512e418b976353a1c54b9,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876879292660060229, guid: 6af8a1c8a3b512e418b976353a1c54b9,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876879292660060229, guid: 6af8a1c8a3b512e418b976353a1c54b9,
-        type: 3}
-      propertyPath: InheritVelocityModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876879292660060229, guid: 6af8a1c8a3b512e418b976353a1c54b9,
-        type: 3}
-      propertyPath: InheritVelocityModule.m_Curve.scalar
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af8a1c8a3b512e418b976353a1c54b9, type: 3}

@@ -11,9 +11,9 @@ public class AIStateController : MonoBehaviour
 
     public MovementController movementController;
 
-    public RotationController rotationController;
-
     public WeaponController weaponController;
+
+    public HealthController healthController;
 
     [HideInInspector]
     public float combatActionDelay;
@@ -27,11 +27,14 @@ public class AIStateController : MonoBehaviour
     [HideInInspector]
     public AIState currentCombatState;
 
-    [SerializeField]
-    private bool doNothing = false;
 
     // Start is called before the first frame update
     void Start()
+    {
+        Initialise();
+    }
+
+    public void Initialise()
     {
         currentMovementState = aiStates.followPlayerState;
         currentLookState = aiStates.lookAtState;
@@ -41,7 +44,7 @@ public class AIStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (doNothing)
+        if (healthController.isDead)
         {
             return;
         }
@@ -58,6 +61,7 @@ public class AIStateController : MonoBehaviour
         HandleWeaponStates();
 
     }
+
 
     private void HandleWeaponStates()
     {
@@ -77,9 +81,9 @@ public class AIStateController : MonoBehaviour
 
     public void ChangeCombatState(AIState next)
     {
-       currentCombatState.Exit(this);
-       currentCombatState = next;
-       currentCombatState.Enter(this);
+        currentCombatState.Exit(this);
+        currentCombatState = next;
+        currentCombatState.Enter(this);
     }
 
     public void ChangeMovementState(AIState next)
