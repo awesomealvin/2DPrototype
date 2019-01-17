@@ -14,7 +14,7 @@ public class HealthController : MonoBehaviour
 
     public bool isDead;
 
-    public FloatVariable deathTimer;
+    [HideInInspector]
     public float currentDeathTimer;
 
     private HealthState currentHealthState;

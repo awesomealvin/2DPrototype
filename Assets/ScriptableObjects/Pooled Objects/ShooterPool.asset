@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0b4e298044ba44b885f5a7e11e7ff6, type: 3}
   m_Name: ShooterPool
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4585901333822034506, guid: 436111a551665b44cbf044478413d1bc, type: 3}
+  prefab: {fileID: 5635622928593137296, guid: 5e58c80eee1e59f4595cc7c52f05ceea, type: 3}
   initialSize: 20

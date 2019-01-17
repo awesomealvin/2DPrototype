@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0b4e298044ba44b885f5a7e11e7ff6, type: 3}
   m_Name: FisterPool
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5090380016967617997, guid: 0859adb6d20127b41a06d667b032b4bb, type: 3}
+  prefab: {fileID: 4446606981426487346, guid: 075e9d69187425443be86bb9fb4241ee, type: 3}
   initialSize: 20

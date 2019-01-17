@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9cdc5151e99d44fab0f77368c9151c, type: 3}
   m_Name: ShooterType
   m_EditorClassIdentifier: 
-  enemyType: 1
+  objectPoolType: 1
