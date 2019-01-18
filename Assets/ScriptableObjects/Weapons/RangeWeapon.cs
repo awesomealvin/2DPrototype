@@ -13,12 +13,14 @@ public class RangeWeapon : Weapon
 
     public float projectileDuration;
 
+    public ProjectileObjectPool projectileObjectPool;
+
 
     public override void Use(WeaponController weaponController)
     {
         // Obtain from object pool
-        ProjectileController o = ObjectPool.instance.GetProjectile();
-        o.Initialise(damage, projectileDuration, force, weaponController.transform.parent);
+        ProjectileController o = projectileObjectPool.Obtain();
+        o.Initialise(damage, projectileDuration, force, weaponController.transform);
 
         // Set the position
         o.transform.position = weaponController.weaponPosition.position;

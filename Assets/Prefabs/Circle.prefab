@@ -69,7 +69,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2278517568952107621}
-  - component: {fileID: 2357608937382503125}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -93,21 +92,6 @@ Transform:
   m_Father: {fileID: 7209071471416042474}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2357608937382503125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813750044662080111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9726bc2c631c3284b8644d509ee01ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  weaponPosition: {fileID: 1867292747684430845}
-  weaponUseEffect: {fileID: 0}
 --- !u!114 &6474334702188357478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +351,8 @@ GameObject:
   - component: {fileID: 4991849864512815522}
   - component: {fileID: 3647938129760741135}
   - component: {fileID: 6200736997023922497}
+  - component: {fileID: 1327964208781575105}
+  - component: {fileID: 8089359497283762333}
   m_Layer: 8
   m_Name: Circle
   m_TagString: Circle
@@ -447,10 +433,12 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 30eeac5e0371e05499081232478f12ea, type: 2}
   playerStats: {fileID: 0}
   isDead: 0
+  playerHealthChangeEvent: {fileID: 0}
   currentDeathTimer: 0
   aliveState: {fileID: 11400000, guid: f77f3c74fd2c4c344a2f30deedc245f0, type: 2}
   deathState: {fileID: 11400000, guid: 8621be38cc0a5df489415d363373bc5b, type: 2}
   circleRender: {fileID: 3267187152940610213}
+  onHitDamageParticles: {fileID: 0}
 --- !u!114 &3647938129760741135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,9 +451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f46e068c1a6bd469c27c23b60a0c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementController: {fileID: 956594690018712380}
-  healthController: {fileID: 4991849864512815522}
-  onHitDamageParticles: {fileID: 0}
 --- !u!114 &6200736997023922497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,8 +464,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthController: {fileID: 4991849864512815522}
-  aiStateController: {fileID: 0}
   movementController: {fileID: 956594690018712380}
+  weaponController: {fileID: 8089359497283762333}
+  abilityController: {fileID: 1327964208781575105}
+  aiStateController: {fileID: 0}
+  objectPool: {fileID: 0}
+--- !u!114 &1327964208781575105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737200199345275193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740b9df1b36070a4e806f90dac30ea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: eed110aae0c46494cbb19e5bc8b9dbf2, type: 2}
+  rb: {fileID: 4420374322574854877}
+  duration: 0
+  useDirection: {x: 0, y: 0}
+  circleController: {fileID: 0}
+  particleSystemController: {fileID: 6474334702188357478}
+--- !u!114 &8089359497283762333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737200199345275193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9726bc2c631c3284b8644d509ee01ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  weaponPosition: {fileID: 1867292747684430845}
+  weaponUseEffect: {fileID: 0}
 --- !u!1 &7800090033234384919
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +685,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4899336468170277977}
-  - component: {fileID: 8025175680812886544}
   m_Layer: 0
   m_Name: Ability
   m_TagString: Untagged
@@ -687,24 +707,6 @@ Transform:
   m_Father: {fileID: 7209071471416042474}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8025175680812886544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676604397566304223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740b9df1b36070a4e806f90dac30ea77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: eed110aae0c46494cbb19e5bc8b9dbf2, type: 2}
-  rb: {fileID: 4420374322574854877}
-  duration: 0
-  useDirection: {x: 0, y: 0}
-  movementController: {fileID: 956594690018712380}
-  particleSystemController: {fileID: 6474334702188357478}
 --- !u!1 &9011649130960044847
 GameObject:
   m_ObjectHideFlags: 0

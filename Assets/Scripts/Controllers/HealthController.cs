@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
+    [HideInInspector]
     public CircleController circleController;
 
     public IntegerVariable maxHealth;
@@ -25,17 +26,12 @@ public class HealthController : MonoBehaviour
 
     public GameObject circleRender;
 
-    private MovementController movementController;
-
-    private HealthController healthController;
-
     [SerializeField]
     private ParticleSystemController onHitDamageParticles;
 
     void OnValidate()
     {
-        movementController = GetComponent<MovementController>();
-        healthController = GetComponent<HealthController>();
+        circleController = GetComponent<CircleController>();
     }
 
     // Start is called before the first frame update
@@ -97,6 +93,8 @@ public class HealthController : MonoBehaviour
     public void Damage(int health, Vector2 force, float staggerTime)
     {
         DeductHealth(health);
+
+        MovementController movementController = circleController.movementController;
 
         movementController.Stagger(staggerTime);
 

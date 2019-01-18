@@ -8,11 +8,5 @@ public class CollisionController : MonoBehaviour
     AbilityController abilityController;
 
     
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (abilityController != null)
-        {
-            abilityController.CollisionEnter2DEvent(other);
-        }
-    }
+    
 }

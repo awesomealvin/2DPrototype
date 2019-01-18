@@ -46,7 +46,7 @@ public class DashAbility : Ability
 
         abilityController.rb.velocity = Vector2.zero;
         // Change Movement State
-        MovementController movementController = abilityController.movementController;
+        MovementController movementController = abilityController.circleController.movementController;
         if (movementController != null)
         {
             movementController.Stagger(1.0f);

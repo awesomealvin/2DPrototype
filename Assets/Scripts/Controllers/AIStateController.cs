@@ -9,10 +9,16 @@ public class AIStateController : MonoBehaviour
 
     public AIStates aiStates;
 
+    [HideInInspector]
+    private CircleController circleController;
+
+    [HideInInspector]
     public MovementController movementController;
 
+    [HideInInspector]
     public WeaponController weaponController;
 
+    [HideInInspector]
     public HealthController healthController;
 
     [HideInInspector]
@@ -27,6 +33,14 @@ public class AIStateController : MonoBehaviour
     [HideInInspector]
     public AIState currentCombatState;
 
+    void OnValidate()
+    {
+        circleController = GetComponent<CircleController>();
+
+        movementController = circleController.movementController;
+        weaponController = circleController.weaponController;
+        healthController = circleController.healthController;
+    }
 
     // Start is called before the first frame update
     void Start()

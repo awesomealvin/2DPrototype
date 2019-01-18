@@ -5,20 +5,29 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+
+    [HideInInspector]
+    public CircleController circleController;
+
     [SerializeField]
     RotationController rotationController;
 
-    [SerializeField]
-    MovementController movementController;
+    private MovementController movementController;
 
-    [SerializeField]
-    AbilityController abilityController;
+    private AbilityController abilityController;
 
     [SerializeField]
     Position mousePosition;
 
-    [SerializeField]
-    WeaponController weaponController;
+    private WeaponController weaponController;
+
+    void OnValidate()
+    {
+        circleController = GetComponent<CircleController>();
+        movementController = circleController.movementController;
+        abilityController = circleController.abilityController;
+        weaponController = circleController.weaponController;
+    }
 
     // Start is called before the first frame update
     void Start()

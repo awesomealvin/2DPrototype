@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthController))]
+[RequireComponent(typeof(MovementController))]
+[RequireComponent(typeof(WeaponController))]
+[RequireComponent(typeof(AbilityController))]
 public class CircleController : MonoBehaviour
 {
     public HealthController healthController;
+    public MovementController movementController;
+    public WeaponController weaponController;
+    public AbilityController abilityController;
 
     public AIStateController aiStateController;
 
-    public MovementController movementController;
+    public CircleObjectPool objectPool;
 
     public void Initialise(Vector2 position)
     {
@@ -20,6 +27,14 @@ public class CircleController : MonoBehaviour
         if (aiStateController != null)
         {
             aiStateController.Initialise();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (abilityController != null)
+        {
+            abilityController.CollisionEnter2DEvent(other);
         }
     }
 }

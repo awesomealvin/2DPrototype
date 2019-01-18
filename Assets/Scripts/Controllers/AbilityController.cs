@@ -16,16 +16,21 @@ public class AbilityController : MonoBehaviour
     private bool inUse = false;
 
     [SerializeField]
-    public MovementController movementController;
+    public CircleController circleController;
 
     [SerializeField]
     public ParticleSystemController particleSystemController;
+
+    void OnValidate()
+    {
+        circleController = GetComponent<CircleController>();
+    }
 
     void Start()
     {
         if (rb == null)
         {
-            rb = transform.parent.GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
         }
         // duration = 0.0f;
     }

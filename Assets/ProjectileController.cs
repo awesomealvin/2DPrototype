@@ -19,6 +19,8 @@ public class ProjectileController : RespawnableObject
     [HideInInspector]
     public float force;
 
+    public ProjectileObjectPool objectPool;
+
 
     public override void Initialise()
     {
@@ -60,7 +62,8 @@ public class ProjectileController : RespawnableObject
         duration -= Time.deltaTime;
         if (duration <= 0.0f)
         {
-            ObjectPool.instance.AddProjectileToQueue(this);
+            // ObjectPool.instance.AddProjectileToQueue(this);
+            objectPool.Add(this);
             gameObject.SetActive(false);
         }
     }
@@ -85,6 +88,9 @@ public class ProjectileController : RespawnableObject
                 Vector2 newForce = direction * force;
                 healthController.Damage(damage, -newForce, 1.0f);
             }
+
+            objectPool.Add(this);
+            gameObject.SetActive(false);
 
         }
     }
