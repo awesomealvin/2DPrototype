@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18618dd6398db1439f3c124dcafb459, type: 3}
   m_Name: AI Out Of Shooter Attack Range State
   m_EditorClassIdentifier: 
-  attackRange: 10
+  attackRange: 15

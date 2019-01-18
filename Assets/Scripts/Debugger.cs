@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Debugger : MonoBehaviour
 {
@@ -21,12 +21,16 @@ public class Debugger : MonoBehaviour
     void Start()
     {
         instance = this;
+        UpdatePlayerHealth();
     }
 
-
     void Update()
+    { }
+
+    public void UpdatePlayerHealth()
     {
         debugText[0].text = "Player Health: " + playerStats.health.ToString();
+
     }
 
     public static Debugger GetInstance()
@@ -39,7 +43,4 @@ public class Debugger : MonoBehaviour
         debugText[index].SetText(text);
     }
 
-
-
-  
 }

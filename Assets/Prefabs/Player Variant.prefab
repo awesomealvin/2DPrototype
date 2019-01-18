@@ -164,17 +164,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 3647938129760741135, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: onHitDamageParticles
-      value: 
-      objectReference: {fileID: 6257655439996556901}
-    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: position
-      value: 
-      objectReference: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72,
-        type: 2}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,6 +242,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8621be38cc0a5df489415d363373bc5b,
         type: 2}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: onHitDamageParticles
+      value: 
+      objectReference: {fileID: 6257655439996556901}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: playerHealthChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 458ee4de721fd0940ae74e14f1c849d0,
+        type: 2}
+    - target: {fileID: 3647938129760741135, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: onHitDamageParticles
+      value: 
+      objectReference: {fileID: 6257655439996556901}
+    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: position
+      value: 
+      objectReference: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72,
+        type: 2}
+    - target: {fileID: 8025175680812886544, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: particleSystemController
+      value: 
+      objectReference: {fileID: 23619728}
     - target: {fileID: 2357608937382503125, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: weapon
@@ -274,11 +290,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6583baf7efff740459f03d28eacd1d20, type: 2}
-    - target: {fileID: 8025175680812886544, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: particleSystemController
-      value: 
-      objectReference: {fileID: 23619728}
     - target: {fileID: 8920178776868026412, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

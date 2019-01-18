@@ -40,15 +40,15 @@ public class MeleeWeapon : Weapon
                 continue;
             }
 
-            DamageController damageController = c.gameObject.GetComponentInParent<DamageController>();
-            if (damageController != null)
+            HealthController healthController = c.gameObject.GetComponentInParent<HealthController>();
+            if (healthController != null)
             {
                 // Debug.Log("Damage Controller Found");
                 Vector2 a = weaponController.transform.position;
-                Vector2 b = damageController.transform.position;
+                Vector2 b = healthController.transform.position;
                 Vector2 direction = (b - a).normalized;
                 Vector2 force = direction * this.force;
-                damageController.Damage(damage, force, 1.0f);
+                healthController.Damage(damage, force, 1.0f);
             }
 
             // Destroy(c.gameObject);

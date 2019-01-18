@@ -19,6 +19,7 @@ public class ProjectileController : RespawnableObject
     [HideInInspector]
     public float force;
 
+
     public override void Initialise()
     {
         rb.velocity = Vector2.zero;
@@ -77,12 +78,12 @@ public class ProjectileController : RespawnableObject
         {
             // Debug.Log("Touched other");
 
-            DamageController damageController = other.transform.parent.GetComponent<DamageController>();
-            if (damageController != null)
+            HealthController healthController = other.transform.parent.GetComponent<HealthController>();
+            if (healthController != null)
             {
-                Vector2 direction = transform.position - damageController.transform.position;
+                Vector2 direction = transform.position - healthController.transform.position;
                 Vector2 newForce = direction * force;
-                damageController.Damage(damage, -newForce, 1.0f);
+                healthController.Damage(damage, -newForce, 1.0f);
             }
 
         }

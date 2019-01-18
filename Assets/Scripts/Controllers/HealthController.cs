@@ -14,6 +14,8 @@ public class HealthController : MonoBehaviour
 
     public bool isDead;
 
+    public GameEvent playerHealthChangeEvent;
+
     [HideInInspector]
     public float currentDeathTimer;
 
@@ -22,6 +24,19 @@ public class HealthController : MonoBehaviour
     public HealthState deathState;
 
     public GameObject circleRender;
+
+    private MovementController movementController;
+
+    private HealthController healthController;
+
+    [SerializeField]
+    private ParticleSystemController onHitDamageParticles;
+
+    void OnValidate()
+    {
+        movementController = GetComponent<MovementController>();
+        healthController = GetComponent<HealthController>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +67,11 @@ public class HealthController : MonoBehaviour
             }
 
             isDead = true;
+        }
+
+        if (playerHealthChangeEvent != null)
+        {
+            playerHealthChangeEvent.Raise();
 
         }
     }
@@ -72,6 +92,22 @@ public class HealthController : MonoBehaviour
     {
         currentHealthState = deathState;
         currentHealthState.Enter(this);
+    }
+
+    public void Damage(int health, Vector2 force, float staggerTime)
+    {
+        DeductHealth(health);
+
+        movementController.Stagger(staggerTime);
+
+        movementController.rb.AddForce(force, ForceMode2D.Impulse);
+        // Debug.Log(force);
+
+        // Apply particle effects
+        if (onHitDamageParticles != null)
+        {
+            onHitDamageParticles.Play();
+        }
     }
 
 }
