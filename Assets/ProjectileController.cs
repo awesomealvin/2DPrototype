@@ -21,7 +21,6 @@ public class ProjectileController : RespawnableObject
 
     public ProjectileObjectPool objectPool;
 
-
     public override void Initialise()
     {
         rb.velocity = Vector2.zero;
@@ -81,12 +80,16 @@ public class ProjectileController : RespawnableObject
         {
             // Debug.Log("Touched other");
 
-            HealthController healthController = other.transform.parent.GetComponent<HealthController>();
-            if (healthController != null)
+            CircleController circleController = other.transform.parent.GetComponent<CircleController>();
+            if (circleController != null)
             {
-                Vector2 direction = transform.position - healthController.transform.position;
-                Vector2 newForce = direction * force;
-                healthController.Damage(damage, -newForce, 1.0f);
+                HealthController healthController = circleController.healthController;
+                if (healthController != null)
+                {
+                    Vector2 direction = transform.position - healthController.transform.position;
+                    Vector2 newForce = direction * force;
+                    healthController.Damage(damage, -newForce, 1.0f, circleController.entityType);
+                }
             }
 
             objectPool.Add(this);

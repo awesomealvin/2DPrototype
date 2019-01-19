@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cd10a9f1274234fb4be7b1b7f8df44, type: 3}
-  m_Name: DashAbility
+  m_Script: {fileID: 11500000, guid: 020305714e19cd3428d1d5150b0b1c37, type: 3}
+  m_Name: Fister
   m_EditorClassIdentifier: 
-  cooldown: 1
-  duration: 0.3
-  damage: 25
-  dashForce: 120
-  damageForce: 25
+  entityName: Fister

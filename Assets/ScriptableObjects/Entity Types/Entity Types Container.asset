@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793d907b648e3df46bc29902d1578295, type: 3}
+  m_Name: Entity Types Container
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 21d7f3176c4127c45944c15f8eefc646, type: 2}
+  shooter: {fileID: 11400000, guid: fccc70a6654c85047b71bf64aff4d706, type: 2}
+  fister: {fileID: 11400000, guid: ac7f3ccb4e4ca834488d85fc1bd8b510, type: 2}
+  projectile: {fileID: 11400000, guid: 9e49411f51eb5cf4eaf3826b13dec6b4, type: 2}

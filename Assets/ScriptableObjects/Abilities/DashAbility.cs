@@ -31,13 +31,18 @@ public class DashAbility : Ability
     {
         if (other.gameObject.CompareTag("Circle"))
         {
-            HealthController healthController = other.gameObject.GetComponent<HealthController>();
-            if (healthController != null)
+            CircleController circleController = other.gameObject.GetComponent<CircleController>();
+            if (circleController != null)
             {
-                Vector2 direction = healthController.transform.position - abilityController.transform.position;
-                Vector2 force = direction * damageForce;
-                healthController.Damage(damage, force, 1.0f);
+                HealthController healthController = circleController.healthController;
+                if (healthController != null)
+                {
+                    Vector2 direction = healthController.transform.position - abilityController.transform.position;
+                    Vector2 force = direction * damageForce;
+                    healthController.Damage(damage, force, 1.0f, circleController.entityType);
+                }
             }
+
         }
     }
 

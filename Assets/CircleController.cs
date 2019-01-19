@@ -17,6 +17,8 @@ public class CircleController : MonoBehaviour
 
     public CircleObjectPool objectPool;
 
+    public EntityType entityType;
+
     public void Initialise(Vector2 position)
     {
         transform.position = position;

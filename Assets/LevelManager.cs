@@ -14,4 +14,9 @@ public class LevelManager : MonoBehaviour
         shooter.Initialise(this.transform);
         fister.Initialise(this.transform);
     }
+
+    public void Test(int test)
+    {
+        Debug.Log(test);
+    }
 }

@@ -9,13 +9,9 @@ public class HealthController : MonoBehaviour
 
     public IntegerVariable maxHealth;
 
-    public GlobalStats playerStats;
-
-    private int currentHealth;
+    protected int currentHealth;
 
     public bool isDead;
-
-    public GameEvent playerHealthChangeEvent;
 
     [HideInInspector]
     public float currentDeathTimer;
@@ -25,6 +21,9 @@ public class HealthController : MonoBehaviour
     public HealthState deathState;
 
     public GameObject circleRender;
+
+    [HideInInspector]
+    public bool isPlayer;
 
     [SerializeField]
     private ParticleSystemController onHitDamageParticles;
@@ -44,32 +43,26 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerStats != null)
-        {
-            playerStats.health = currentHealth;
-        }
-
         currentHealthState.Execute(this);
     }
 
-    public void DeductHealth(int amount)
+    public virtual void DeductHealth(int amount)
     {
         currentHealth -= amount;
-        if (currentHealth <= 0.0f)
+        if (currentHealth <= 0.0f && !isDead)
         {
-            if (!isDead)
-            {
-                SetDeathState();
-            }
+            OnDeath();
+        }
+    }
 
-            isDead = true;
+    private void OnDeath()
+    {
+        if (!isDead)
+        {
+            SetDeathState();
         }
 
-        if (playerHealthChangeEvent != null)
-        {
-            playerHealthChangeEvent.Raise();
-
-        }
+        isDead = true;
     }
 
     public void Initialise()
@@ -90,7 +83,7 @@ public class HealthController : MonoBehaviour
         currentHealthState.Enter(this);
     }
 
-    public void Damage(int health, Vector2 force, float staggerTime)
+    public virtual void Damage(int health, Vector2 force, float staggerTime, EntityType attacker)
     {
         DeductHealth(health);
 
