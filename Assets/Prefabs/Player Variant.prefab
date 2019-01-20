@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1440494528533287485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013167219472894669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5e9f014393741244ad3d73ca145a75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthController: {fileID: 0}
-  movementController: {fileID: 7505795703576793288}
-  weaponController: {fileID: 1525696882440532841}
-  abilityController: {fileID: 8575575832659347509}
-  aiStateController: {fileID: 0}
-  objectPool: {fileID: 0}
-  entityType: {fileID: 0}
 --- !u!114 &6488046583111064209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +36,7 @@ MonoBehaviour:
   circleRender: {fileID: 5203928913296800081}
   isPlayer: 0
   onHitDamageParticles: {fileID: 6257655439996556901}
+  onHitEvent: {fileID: 11400000, guid: d9aa4398505014d40b30050ad0a8c835, type: 2}
   playerStats: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2, type: 2}
   playerHealthChangeEvent: {fileID: 11400000, guid: 458ee4de721fd0940ae74e14f1c849d0,
     type: 2}
@@ -177,35 +159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: maxHealth
-      value: 
-      objectReference: {fileID: 11400000, guid: dd33c64cb53e7994fac315a9fb149581,
-        type: 2}
-    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2,
-        type: 2}
-    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: playerHealthChangeEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 458ee4de721fd0940ae74e14f1c849d0,
-        type: 2}
-    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: onHitDamageParticles
-      value: 
-      objectReference: {fileID: 6257655439996556901}
-    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: position
-      value: 
-      objectReference: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72,
-        type: 2}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,17 +214,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6200736997023922497, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: entityType
-      value: 
-      objectReference: {fileID: 11400000, guid: 21d7f3176c4127c45944c15f8eefc646,
-        type: 2}
-    - target: {fileID: 6200736997023922497, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: healthController
-      value: 
-      objectReference: {fileID: 7512570941010515824}
     - target: {fileID: 8089359497283762333, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: weapon
@@ -283,6 +225,34 @@ PrefabInstance:
       propertyPath: weaponUseEffect
       value: 
       objectReference: {fileID: 6003379290594179150}
+    - target: {fileID: 6200736997023922497, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: entityType
+      value: 
+      objectReference: {fileID: 11400000, guid: 21d7f3176c4127c45944c15f8eefc646,
+        type: 2}
+    - target: {fileID: 6200736997023922497, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: healthController
+      value: 
+      objectReference: {fileID: 7512570941010515824}
+    - target: {fileID: 6200736997023922497, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: objectPool
+      value: 
+      objectReference: {fileID: 11400000, guid: 2063df575f7fd15449b2226c87bb2ed1,
+        type: 2}
+    - target: {fileID: 4420374322574854877, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: position
+      value: 
+      objectReference: {fileID: 11400000, guid: a5c36c3b59d33ce41a4fd4f933b5fd72,
+        type: 2}
     - target: {fileID: 3501112144110929375, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -298,6 +268,29 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: maxHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: dd33c64cb53e7994fac315a9fb149581,
+        type: 2}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2,
+        type: 2}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: playerHealthChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 458ee4de721fd0940ae74e14f1c849d0,
+        type: 2}
+    - target: {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: onHitDamageParticles
+      value: 
+      objectReference: {fileID: 6257655439996556901}
     m_RemovedComponents:
     - {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}
@@ -307,18 +300,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7309184559869725684}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7505795703576793288 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-    type: 3}
-  m_PrefabInstance: {fileID: 7309184559869725684}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013167219472894669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca64a0fddfc6684687e9d8c4e80ab62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3702523851783385781 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6200736997023922497, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
@@ -329,30 +310,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5e9f014393741244ad3d73ca145a75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8575575832659347509 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1327964208781575105, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-    type: 3}
-  m_PrefabInstance: {fileID: 7309184559869725684}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013167219472894669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740b9df1b36070a4e806f90dac30ea77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1525696882440532841 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8089359497283762333, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-    type: 3}
-  m_PrefabInstance: {fileID: 7309184559869725684}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013167219472894669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9726bc2c631c3284b8644d509ee01ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5203928913296800081 stripped

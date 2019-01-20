@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Events/Default")]
 public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> listeners = new List<GameEventListener>();
@@ -12,14 +12,6 @@ public class GameEvent : ScriptableObject
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
             listeners[i].OnEventRaised();
-        }
-    }
-
-    public void Raise(int value)
-    {
-         for (int i = listeners.Count - 1; i >= 0; i--)
-        {
-            listeners[i].OnEventRaised(value);
         }
     }
 

@@ -50,7 +50,7 @@ public class MeleeWeapon : Weapon
                 Vector2 b = healthController.transform.position;
                 Vector2 direction = (b - a).normalized;
                 Vector2 force = direction * this.force;
-                healthController.Damage(damage, force, 1.0f, circleController.entityType);
+                healthController.Damage(damage, force, 1.0f, weaponController.circleController.entityType);
             }
 
             // Destroy(c.gameObject);

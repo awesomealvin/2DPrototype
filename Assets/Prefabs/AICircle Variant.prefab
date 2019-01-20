@@ -43,7 +43,7 @@ MonoBehaviour:
   circleRender: {fileID: 6145697806198785061}
   isPlayer: 0
   onHitDamageParticles: {fileID: 0}
-  enemyOnHitEvent: {fileID: 11400000, guid: d2352fe4b18cbf040ba160e3a7e62c5e, type: 2}
+  onHitEvent: {fileID: 11400000, guid: d2352fe4b18cbf040ba160e3a7e62c5e, type: 2}
 --- !u!1001 &8655503899922200192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,12 +56,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AICircle Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
-        type: 3}
-      propertyPath: movement
-      value: 
-      objectReference: {fileID: 11400000, guid: 41abf347134347048b16a15cc4f584b3,
-        type: 2}
     - target: {fileID: 7209071471416042474, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -127,6 +121,12 @@ PrefabInstance:
       propertyPath: healthController
       value: 
       objectReference: {fileID: 9024446759853557816}
+    - target: {fileID: 956594690018712380, guid: c3f4e4db77ab45b44b0d5411e4d7b188,
+        type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 41abf347134347048b16a15cc4f584b3,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 4991849864512815522, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3f4e4db77ab45b44b0d5411e4d7b188, type: 3}

@@ -5,7 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EntityType : ScriptableObject
 {
-    public string entityName;
+    public enum Type
+    {
+        PLAYER, FISTER, SHOOTER, PROJECTILE
+    }
 
-    public bool isPlayer;
+    public Type type;
+    public string entityName;
 }

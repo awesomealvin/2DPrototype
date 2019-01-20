@@ -9,7 +9,7 @@ public class AIAttackState : AIState
 
     public override void Enter(AIStateController aiStateController)
     {
-        Debug.Log("Entered Attack State");
+        // Debug.Log("Entered Attack State");
         aiStateController.combatActionDelay = actionDelay;
     }
 

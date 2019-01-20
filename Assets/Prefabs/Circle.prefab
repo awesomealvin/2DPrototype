@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 4420374322574854877}
   - component: {fileID: 956594690018712380}
   - component: {fileID: 4991849864512815522}
-  - component: {fileID: 3647938129760741135}
   - component: {fileID: 6200736997023922497}
   - component: {fileID: 1327964208781575105}
   - component: {fileID: 8089359497283762333}
@@ -431,26 +430,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleController: {fileID: 6200736997023922497}
   maxHealth: {fileID: 11400000, guid: 30eeac5e0371e05499081232478f12ea, type: 2}
-  playerStats: {fileID: 0}
   isDead: 0
-  playerHealthChangeEvent: {fileID: 0}
   currentDeathTimer: 0
   aliveState: {fileID: 11400000, guid: f77f3c74fd2c4c344a2f30deedc245f0, type: 2}
   deathState: {fileID: 11400000, guid: 8621be38cc0a5df489415d363373bc5b, type: 2}
   circleRender: {fileID: 3267187152940610213}
+  isPlayer: 0
   onHitDamageParticles: {fileID: 0}
---- !u!114 &3647938129760741135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7737200199345275193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f46e068c1a6bd469c27c23b60a0c3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  onHitEvent: {fileID: 0}
 --- !u!114 &6200736997023922497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +456,7 @@ MonoBehaviour:
   abilityController: {fileID: 1327964208781575105}
   aiStateController: {fileID: 0}
   objectPool: {fileID: 0}
+  entityType: {fileID: 0}
 --- !u!114 &1327964208781575105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +473,7 @@ MonoBehaviour:
   rb: {fileID: 4420374322574854877}
   duration: 0
   useDirection: {x: 0, y: 0}
-  circleController: {fileID: 0}
+  circleController: {fileID: 6200736997023922497}
   particleSystemController: {fileID: 6474334702188357478}
 --- !u!114 &8089359497283762333
 MonoBehaviour:

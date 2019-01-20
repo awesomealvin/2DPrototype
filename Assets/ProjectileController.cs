@@ -19,6 +19,8 @@ public class ProjectileController : RespawnableObject
     [HideInInspector]
     public float force;
 
+    public EntityType entityType;
+
     public ProjectileObjectPool objectPool;
 
     public override void Initialise()
@@ -88,7 +90,7 @@ public class ProjectileController : RespawnableObject
                 {
                     Vector2 direction = transform.position - healthController.transform.position;
                     Vector2 newForce = direction * force;
-                    healthController.Damage(damage, -newForce, 1.0f, circleController.entityType);
+                    healthController.Damage(damage, -newForce, 1.0f, this.entityType);
                 }
             }
 

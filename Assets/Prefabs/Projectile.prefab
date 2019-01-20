@@ -141,6 +141,7 @@ MonoBehaviour:
   duration: 0
   owner: {fileID: 0}
   force: 0
+  entityType: {fileID: 11400000, guid: 9e49411f51eb5cf4eaf3826b13dec6b4, type: 2}
   objectPool: {fileID: 11400000, guid: 8d48f76eeaaceff4a9a031d4e6102144, type: 2}
 --- !u!1 &21
 GameObject:

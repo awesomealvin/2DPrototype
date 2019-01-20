@@ -13,6 +13,14 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private ParticleSystemController weaponUseEffect;
 
+    [HideInInspector]
+    public CircleController circleController;
+
+    void OnValidate()
+    {
+        circleController = GetComponent<CircleController>();
+    }
+
     public void Initialise()
     {
         currentDelay = -1.0f;

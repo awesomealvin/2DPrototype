@@ -28,6 +28,9 @@ public class HealthController : MonoBehaviour
     [SerializeField]
     private ParticleSystemController onHitDamageParticles;
 
+    [SerializeField]
+    protected GameOnHitEvent onHitEvent;
+
     void OnValidate()
     {
         circleController = GetComponent<CircleController>();
@@ -85,6 +88,12 @@ public class HealthController : MonoBehaviour
 
     public virtual void Damage(int health, Vector2 force, float staggerTime, EntityType attacker)
     {
+        OnHitData onHitData = new OnHitData();
+        onHitData.currentHealth = currentHealth;
+        onHitData.damageAmount = health;
+        onHitData.attacker = attacker;
+        onHitEvent.Raise(onHitData);
+
         DeductHealth(health);
 
         MovementController movementController = circleController.movementController;

@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac228ed3c2bcfe6409b802dfc8d5f8e3, type: 3}
-  m_Name: OnEnemyHit
+  m_Script: {fileID: 11500000, guid: b77257c5fd4b1e049a412ee849454014, type: 3}
+  m_Name: PlayerObjectPool
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  size: 0
