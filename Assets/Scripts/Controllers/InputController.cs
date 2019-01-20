@@ -24,6 +24,10 @@ public class InputController : MonoBehaviour
     void OnValidate()
     {
         circleController = GetComponent<CircleController>();
+
+    }
+    void Awake()
+    {
         movementController = circleController.movementController;
         abilityController = circleController.abilityController;
         weaponController = circleController.weaponController;

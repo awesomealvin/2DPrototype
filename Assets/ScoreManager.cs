@@ -36,6 +36,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(OnHitData data)
     {
+        
         if (data.attacker.type == EntityType.Type.PLAYER)
         {
             int points = data.damageAmount;
@@ -45,6 +46,10 @@ public class ScoreManager : MonoBehaviour
             }
             AddScore(points);
         }
+    }
 
+    public void ResetScore()
+    {
+        AddScore(-score);
     }
 }

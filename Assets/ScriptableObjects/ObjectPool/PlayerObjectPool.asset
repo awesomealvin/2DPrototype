@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77257c5fd4b1e049a412ee849454014, type: 3}
   m_Name: PlayerObjectPool
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  size: 0
+  prefab: {fileID: 1013167219472894669, guid: 6167e11d62c30eb4187757418130f5ae, type: 3}
+  size: 1

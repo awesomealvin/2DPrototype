@@ -37,6 +37,7 @@ MonoBehaviour:
   isPlayer: 0
   onHitDamageParticles: {fileID: 6257655439996556901}
   onHitEvent: {fileID: 11400000, guid: d9aa4398505014d40b30050ad0a8c835, type: 2}
+  onDeathEvent: {fileID: 11400000, guid: d496d6df53866ea4bbbc2cd008ea0bb1, type: 2}
   playerStats: {fileID: 11400000, guid: 8e15d0eed8a8bc141be3f50de0e08bd2, type: 2}
   playerHealthChangeEvent: {fileID: 11400000, guid: 458ee4de721fd0940ae74e14f1c849d0,
     type: 2}

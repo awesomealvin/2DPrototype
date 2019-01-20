@@ -7,7 +7,7 @@ public class AliveState : HealthState
 {
     public override void Enter(HealthController healthController)
     {
-        healthController.Initialise();
+        // healthController.Initialise();
         healthController.circleRender.SetActive(true);
     }
 

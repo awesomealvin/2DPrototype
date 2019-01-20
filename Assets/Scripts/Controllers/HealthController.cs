@@ -31,6 +31,9 @@ public class HealthController : MonoBehaviour
     [SerializeField]
     protected GameOnHitEvent onHitEvent;
 
+    [SerializeField]
+    protected GameEvent onDeathEvent;
+
     void OnValidate()
     {
         circleController = GetComponent<CircleController>();
@@ -63,6 +66,12 @@ public class HealthController : MonoBehaviour
         if (!isDead)
         {
             SetDeathState();
+            if (onDeathEvent != null)
+            {
+                onDeathEvent.Raise();
+                Debug.Log("On Death Raised");
+
+            }
         }
 
         isDead = true;
@@ -70,8 +79,11 @@ public class HealthController : MonoBehaviour
 
     public void Initialise()
     {
+        // Debug.Log("HealthCotroller INitialised");
         currentHealth = maxHealth.value;
         isDead = false;
+        SetAliveState();
+
     }
 
     public void SetAliveState()
@@ -107,6 +119,14 @@ public class HealthController : MonoBehaviour
         if (onHitDamageParticles != null)
         {
             onHitDamageParticles.Play();
+        }
+    }
+
+    public void Suicide()
+    {
+        if (!isDead)
+        {
+            Damage(99999, new Vector2(0, 0), 0.0f, circleController.entityType); 
         }
     }
 

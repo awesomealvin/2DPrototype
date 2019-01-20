@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020305714e19cd3428d1d5150b0b1c37, type: 3}
   m_Name: Fister
   m_EditorClassIdentifier: 
+  type: 1
   entityName: Fister

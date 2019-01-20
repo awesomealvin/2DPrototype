@@ -33,9 +33,10 @@ public class MeleeWeapon : Weapon
         foreach (Collider2D c in colliders)
         {
             // Debug.Log("Collider Found");
-
+            Debug.Log(weaponController.transform);
+            Debug.Log(c.transform.root);
             // Makes sure the "user" doesn't hit itself lul
-            if (weaponController.transform == c.transform.root)
+            if (weaponController.transform == c.transform.parent)
             {
                 continue;
             }

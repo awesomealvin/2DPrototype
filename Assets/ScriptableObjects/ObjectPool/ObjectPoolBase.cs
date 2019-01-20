@@ -21,8 +21,13 @@ public abstract class ObjectPoolBase<T> : ScriptableObject where T : MonoBehavio
     }
 
     public void Add(T obj)
-    {
+    {  
         pool.Enqueue(obj);
+    }
+
+    public T[] GetAll()
+    {
+        return pool.ToArray();
     }
 
     public T Obtain()

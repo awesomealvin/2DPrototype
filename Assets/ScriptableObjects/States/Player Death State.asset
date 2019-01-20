@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player Death State
   m_EditorClassIdentifier: 
   objectPoolType: {fileID: 11400000, guid: 7e738a87e633f394fbb2f2f57fd5b6c4, type: 2}
-  deathTime: 5
+  deathTime: 1
