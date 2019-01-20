@@ -5,31 +5,31 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
-    public CircleObjectPool fister;
-    public CircleObjectPool shooter;
-    public ProjectileObjectPool projectile;
-    public CircleObjectPool player;
+    public CircleObjectPool fisterPool;
+    public CircleObjectPool shooterPool;
+    public ProjectileObjectPool projectilePool;
+    public CircleObjectPool playerPool;
 
     void Start()
     {
-        shooter.Initialise(this.transform);
-        fister.Initialise(this.transform);
-        projectile.Initialise(this.transform);
-        player.Initialise(this.transform);
+        shooterPool.Initialise(this.transform);
+        fisterPool.Initialise(this.transform);
+        projectilePool.Initialise(this.transform);
+        playerPool.Initialise(this.transform);
     }
 
     public void SpawnPlayer()
     {
         Debug.Log("Spawned Player");
-        CircleController playerObj = player.Obtain();
+        CircleController playerObj = playerPool.Obtain();
         playerObj.Initialise(new Vector2(0, 0));
     }
 
     public void KillAll()
     {
-        CircleController[] fisterArray = fister.GetAll();
-        CircleController[] shooterArray = shooter.GetAll();
-        CircleController[] playerArray = player.GetAll();
+        CircleController[] fisterArray = fisterPool.GetAll();
+        CircleController[] shooterArray = shooterPool.GetAll();
+        CircleController[] playerArray = playerPool.GetAll();
 
         CircleController[][] circles = { fisterArray, shooterArray, playerArray };
 

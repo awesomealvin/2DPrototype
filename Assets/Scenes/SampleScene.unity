@@ -450,10 +450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11dd32ddc2afc6e42a0fad06c213e937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fister: {fileID: 11400000, guid: d62d31592fdff7f438a717d761b67188, type: 2}
-  shooter: {fileID: 11400000, guid: b08ced149a649f540bae5bf29c2045a6, type: 2}
-  projectile: {fileID: 11400000, guid: 8d48f76eeaaceff4a9a031d4e6102144, type: 2}
-  player: {fileID: 11400000, guid: 2063df575f7fd15449b2226c87bb2ed1, type: 2}
+  fisterPool: {fileID: 11400000, guid: d62d31592fdff7f438a717d761b67188, type: 2}
+  shooterPool: {fileID: 11400000, guid: b08ced149a649f540bae5bf29c2045a6, type: 2}
+  projectilePool: {fileID: 11400000, guid: 8d48f76eeaaceff4a9a031d4e6102144, type: 2}
+  playerPool: {fileID: 11400000, guid: 2063df575f7fd15449b2226c87bb2ed1, type: 2}
 --- !u!4 &346733150
 Transform:
   m_ObjectHideFlags: 0
