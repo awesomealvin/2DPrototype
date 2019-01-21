@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName="Object Pool/Projectile")]
 public class ProjectileObjectPool : ObjectPoolBase<ProjectileController>
 {
    

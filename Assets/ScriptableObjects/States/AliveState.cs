@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "Health States/Alive")]
 public class AliveState : HealthState
 {
     public override void Enter(HealthController healthController)

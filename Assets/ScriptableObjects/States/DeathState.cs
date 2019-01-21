@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "Health States/Death")]
 public class DeathState : HealthState
 {
-    public ObjectPoolType objectPoolType;
-
     public float deathTime;
 
     public override void Enter(HealthController healthController)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "Weapons/Melee Weapon")]
 public class MeleeWeapon : Weapon
 {
     public float damageRadius;

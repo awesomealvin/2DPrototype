@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "Weapons/Ranged Weapon")]
 public class RangeWeapon : Weapon
 {
     // public GameObject projectile;

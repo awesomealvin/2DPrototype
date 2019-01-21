@@ -33,6 +33,9 @@ public class AIStateController : MonoBehaviour
     [HideInInspector]
     public AIState currentCombatState;
 
+    public State currentState;
+    public State remainState;
+
     void OnValidate()
     {
         circleController = GetComponent<CircleController>();
@@ -112,5 +115,15 @@ public class AIStateController : MonoBehaviour
     {
         Vector2 direction = playerPosition.position - transform.position;
         return direction.magnitude;
+    }
+
+    
+    public void TransitionToState(State nextState)
+    {
+        if (nextState != remainState)
+        {
+            currentState = nextState;
+        
+        }
     }
 }

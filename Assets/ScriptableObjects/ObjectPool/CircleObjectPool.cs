@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "Object Pool/Circle")]
 public class CircleObjectPool : ObjectPoolBase<CircleController>
 {
     
