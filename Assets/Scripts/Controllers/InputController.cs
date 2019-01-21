@@ -63,12 +63,14 @@ public class InputController : MonoBehaviour
         {
             return;
         }
-
+#if !UNITY_ANDROID
         if (Input.GetAxisRaw("Fire1") > 0.0f)
         {
             weaponController.Use();
             // Debug.Log("Input Fire1");
         }
+#endif
+
     }
 
     // Update is called once per frame

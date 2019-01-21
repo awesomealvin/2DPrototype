@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: RangeWeapon
   m_EditorClassIdentifier: 
   layerMasks: {fileID: 11400000, guid: 84fbfb2d956151949be3a07cf87d023f, type: 2}
-  delay: 0.75
+  delay: 1
   damage: 5
   force: 10
   range: 10
   spread: 10
-  projectileSpeed: 15
+  minProjectileSpeed: 15
+  maxProjectileSpeed: 15
   projectileDuration: 4
+  projectileCount: 1
   projectileObjectPool: {fileID: 11400000, guid: 8d48f76eeaaceff4a9a031d4e6102144,
     type: 2}

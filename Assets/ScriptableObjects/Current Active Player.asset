@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a594b72358416604d849346b0c07db66, type: 3}
-  m_Name: FisterMeleeWeapon
+  m_Script: {fileID: 11500000, guid: c8c42df464e9e1c438e9c48e3e98c81c, type: 3}
+  m_Name: Current Active Player
   m_EditorClassIdentifier: 
-  layerMasks: {fileID: 11400000, guid: 84fbfb2d956151949be3a07cf87d023f, type: 2}
-  delay: 1
-  damage: 10
-  force: 20
-  range: 2
-  damageRadius: 1.5
+  currentPlayer: {fileID: 0}

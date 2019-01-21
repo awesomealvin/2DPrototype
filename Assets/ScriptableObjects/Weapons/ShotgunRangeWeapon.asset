@@ -9,12 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a594b72358416604d849346b0c07db66, type: 3}
-  m_Name: FisterMeleeWeapon
+  m_Script: {fileID: 11500000, guid: 36bc3cb905580c743bd7485ec99df9c9, type: 3}
+  m_Name: ShotgunRangeWeapon
   m_EditorClassIdentifier: 
   layerMasks: {fileID: 11400000, guid: 84fbfb2d956151949be3a07cf87d023f, type: 2}
   delay: 1
   damage: 10
-  force: 20
-  range: 2
-  damageRadius: 1.5
+  force: 10
+  range: 10
+  spread: 20
+  minProjectileSpeed: 10
+  maxProjectileSpeed: 15
+  projectileDuration: 0.5
+  projectileCount: 8
+  projectileObjectPool: {fileID: 11400000, guid: f0a74de0d9f424946aa1aaea1919659b,
+    type: 2}

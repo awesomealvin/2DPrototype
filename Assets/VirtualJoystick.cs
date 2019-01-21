@@ -10,11 +10,15 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 
     private RectTransform rectTransform;
 
+    public ActivePlayer currentActivePlayer;
+
     [SerializeField]
     private RectTransform parent;
 
     [SerializeField]
     private MovementController movementController;
+
+    public RectTransform innerCircle;
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -36,6 +40,9 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
             out imagePosition
         );
 
+        innerCircle.position = eventData.position;
+        innerCircle.localPosition = Vector2.ClampMagnitude(innerCircle.localPosition, 50.0f);
+
         direction = (position - imagePosition).normalized;
         // Debug.Log("Image Position: " + imagePosition);
         // Debug.Log("Event Data Position: " + position);
@@ -53,6 +60,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
         touching = false;
         direction = Vector2.zero;
         Debug.Log("Joystick Released");
+        innerCircle.localPosition = Vector2.zero;
     }
 
     // Start is called before the first frame update
@@ -72,12 +80,14 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 
     private void HandleMovement()
     {
-        if (movementController == null)
+        CircleController player = currentActivePlayer.currentPlayer;
+        if (player.movementController == null)
         {
             return;
         }
-        movementController.Move(direction);
-
+        player.movementController.Move(direction);
+        player.transform.right = player.movementController.rb.velocity;
+    
     }
 
 }
