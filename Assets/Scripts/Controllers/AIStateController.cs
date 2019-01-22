@@ -65,6 +65,7 @@ public class AIStateController : MonoBehaviour
         {
             return;
         }
+        /* 
         if (currentMovementState != null)
         {
             currentMovementState.Execute(this);
@@ -76,9 +77,16 @@ public class AIStateController : MonoBehaviour
         }
 
         HandleWeaponStates();
-
+        */
+        if (currentState != null)
+        {
+            currentState.ExecuteState(this);
+        }
+        if (combatActionDelay >= 0.0f)
+        {
+            combatActionDelay -= Time.deltaTime;
+        }
     }
-
 
     private void HandleWeaponStates()
     {
@@ -117,13 +125,29 @@ public class AIStateController : MonoBehaviour
         return direction.magnitude;
     }
 
-    
+    public bool InRange(Vector2 a, Vector2 b, float range)
+    {
+        Vector2 direction = b - a;
+
+        bool value = false;
+        if (Vector2.SqrMagnitude(direction) <= range * range)
+        {
+            value = true;
+        }
+        else
+        {
+            value = false;
+        }
+
+        return value;
+    }
+
     public void TransitionToState(State nextState)
     {
         if (nextState != remainState)
         {
             currentState = nextState;
-        
+
         }
     }
 }
