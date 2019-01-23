@@ -307,6 +307,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1771a036076198642a70e893039b3f68,
         type: 2}
+    - target: {fileID: 3786072626086721884, guid: 4ddea37d7efae614d9d8200b8c13e2b4,
+        type: 3}
+      propertyPath: aIStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f14acf23e097894a8ab57045c8e54ae,
+        type: 2}
+    - target: {fileID: 3786072626086721884, guid: 4ddea37d7efae614d9d8200b8c13e2b4,
+        type: 3}
+      propertyPath: aiStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 87424cff10cf4904ebebc4b27cc1e422,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ddea37d7efae614d9d8200b8c13e2b4, type: 3}
 --- !u!4 &4666052833536322027 stripped

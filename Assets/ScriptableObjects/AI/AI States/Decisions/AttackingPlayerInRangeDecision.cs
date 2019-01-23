@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Decisions/Player In Range")]
-public class PlayerInRangeDecision : Decision
+[CreateAssetMenu(menuName = "AI/Decisions/Attacking Player In Range")]
+public class AttackingPlayerInRangeDecision : Decision
 {
 
     public override bool Decide(AIStateController stateController)
@@ -13,7 +13,7 @@ public class PlayerInRangeDecision : Decision
         Vector2 position = stateController.transform.position;
         Vector2 playerPosition = stateController.playerPosition.position;
 
-        if (stateController.InRange(position, playerPosition, stateController.aiStats.attackRange))
+        if (stateController.InRange(position, playerPosition, stateController.aiStats.disengageRange))
         {
             returnValue = true;
         }
@@ -24,5 +24,4 @@ public class PlayerInRangeDecision : Decision
 
         return returnValue;
     }
-
 }

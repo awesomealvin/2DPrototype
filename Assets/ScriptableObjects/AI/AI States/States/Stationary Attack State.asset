@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04a7f7bb0678e134f944d025090eb084, type: 3}
-  m_Name: Shooter Follow Player State
+  m_Name: Stationary Attack State
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 2225fec6924cecb4e93bd996126a144b, type: 2}
   - {fileID: 11400000, guid: 7d5a921202162704eaa07d30ab2c20b4, type: 2}
+  - {fileID: 11400000, guid: 6777473c9f8f6024f8cff77a10fa30db, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 040b1c951fc1aa148bd1d3cebb0b30f9, type: 2}
-    trueState: {fileID: 11400000, guid: 80d8b8084f8516941af8f0e3865a2260, type: 2}
-    falseState: {fileID: 11400000, guid: eb1716d67183020498a6710fd964a84e, type: 2}
+  - decision: {fileID: 11400000, guid: 69acb6c3bb175674ba00c4c510dcd6bc, type: 2}
+    trueState: {fileID: 11400000, guid: eb1716d67183020498a6710fd964a84e, type: 2}
+    falseState: {fileID: 11400000, guid: 39e35d18e7b6d3c408024d2ace99bf2e, type: 2}

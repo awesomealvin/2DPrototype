@@ -18,9 +18,9 @@ MonoBehaviour:
   force: 10
   range: 10
   spread: 20
-  minProjectileSpeed: 10
-  maxProjectileSpeed: 15
-  projectileDuration: 0.5
-  projectileCount: 8
+  minProjectileSpeed: 15
+  maxProjectileSpeed: 20
+  projectileDuration: 1.5
+  projectileCount: 10
   projectileObjectPool: {fileID: 11400000, guid: f0a74de0d9f424946aa1aaea1919659b,
     type: 2}

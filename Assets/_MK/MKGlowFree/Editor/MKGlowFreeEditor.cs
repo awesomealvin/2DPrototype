@@ -1,4 +1,6 @@
-﻿//////////////////////////////////////////////////////
+﻿#pragma warning disable 0612
+#pragma warning disable 0618
+//////////////////////////////////////////////////////
 // MK Glow Free	    			                    //
 //					                                //
 // Created by Michael Kremmel                       //

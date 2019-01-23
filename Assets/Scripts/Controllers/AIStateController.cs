@@ -9,30 +9,23 @@ public class AIStateController : MonoBehaviour
 
     public AIStates aiStates;
 
-    [HideInInspector]
-    private CircleController circleController;
+    [HideInInspector] private CircleController circleController;
 
-    [HideInInspector]
-    public MovementController movementController;
+    [HideInInspector] public MovementController movementController;
 
-    [HideInInspector]
-    public WeaponController weaponController;
+    [HideInInspector] public WeaponController weaponController;
 
-    [HideInInspector]
-    public HealthController healthController;
+    [HideInInspector] public HealthController healthController;
 
-    [HideInInspector]
-    public float combatActionDelay;
+    [HideInInspector] public float combatActionDelay;
 
-    [HideInInspector]
-    public AIState currentMovementState;
+    [HideInInspector] public AIState currentMovementState;
 
-    [HideInInspector]
-    public AIState currentLookState;
+    [HideInInspector] public AIState currentLookState;
 
-    [HideInInspector]
-    public AIState currentCombatState;
+    [HideInInspector] public AIState currentCombatState;
 
+    public AIStats aiStats;
     public State currentState;
     public State remainState;
 
