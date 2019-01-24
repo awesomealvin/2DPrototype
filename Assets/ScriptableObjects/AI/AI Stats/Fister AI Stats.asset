@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d8e5e15582a6642ad3b5b0585f3ff9, type: 3}
   m_Name: Fister AI Stats
   m_EditorClassIdentifier: 
-  attackRange: 2
-  disengageRange: 2.5
+  attackRange: 2.5
+  disengageRange: 3
   lookSpeed: 5
+  combatDelay: 0.5

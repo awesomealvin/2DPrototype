@@ -90,7 +90,7 @@ public class AIStateController : MonoBehaviour
         if (nextState != remainState)
         {
             currentState = nextState;
-
+            currentState.EnterState(this);
         }
     }
 }

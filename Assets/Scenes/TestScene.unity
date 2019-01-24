@@ -2793,7 +2793,7 @@ PrefabInstance:
     - target: {fileID: 4446606981426487346, guid: 075e9d69187425443be86bb9fb4241ee,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3665454717478879969, guid: 075e9d69187425443be86bb9fb4241ee,
         type: 3}
@@ -2848,6 +2848,16 @@ PrefabInstance:
     - target: {fileID: 3665454717478879969, guid: 075e9d69187425443be86bb9fb4241ee,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462733532186098350, guid: 075e9d69187425443be86bb9fb4241ee,
+        type: 3}
+      propertyPath: SizeBySpeedModule.range.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462733532186098350, guid: 075e9d69187425443be86bb9fb4241ee,
+        type: 3}
+      propertyPath: SizeBySpeedModule.separateAxes
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3053,6 +3063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (AICircle)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635622928593137296, guid: 5e58c80eee1e59f4595cc7c52f05ceea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4710215357560671299, guid: 5e58c80eee1e59f4595cc7c52f05ceea,
         type: 3}

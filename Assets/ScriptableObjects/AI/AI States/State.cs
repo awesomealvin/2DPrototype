@@ -8,6 +8,14 @@ public class State : ScriptableObject
     public Action[] actions;
     public Transition[] transitions;
 
+    public void EnterState(AIStateController stateController)
+    {
+        for (int i = 0; i < actions.Length; ++i)
+        {
+            actions[i].Enter(stateController);
+        }
+    }
+
     public void ExecuteState(AIStateController stateController)
     {
         ExecuteActions(stateController);

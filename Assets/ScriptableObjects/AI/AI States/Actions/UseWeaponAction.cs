@@ -7,7 +7,7 @@ public class UseWeaponAction : Action
 {
     public override void Enter(AIStateController stateController)
     {
-
+        stateController.combatActionDelay = stateController.aiStats.combatDelay;
     }
     
     public override void Execute(AIStateController stateController)
