@@ -5,11 +5,16 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "AI/Actions/Follow Player")]
 public class FollowPlayerAction : Action
 {
+    public override void Enter(AIStateController stateController)
+    {
+
+    }
+
     public override void Execute(AIStateController stateController)
     {
         Vector2 direction = stateController.playerPosition.position - stateController.transform.position;
         stateController.movementController.Move(direction);
     }
 
-   
+
 }

@@ -5,6 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Actions/Use Weapon")]
 public class UseWeaponAction : Action
 {
+    public override void Enter(AIStateController stateController)
+    {
+
+    }
+    
     public override void Execute(AIStateController stateController)
     {
         WeaponController weaponController = stateController.weaponController;

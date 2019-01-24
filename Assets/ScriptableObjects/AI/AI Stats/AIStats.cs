@@ -8,4 +8,5 @@ public class AIStats : ScriptableObject
     public float attackRange;
     public float disengageRange;
     public float lookSpeed;
+    
 }

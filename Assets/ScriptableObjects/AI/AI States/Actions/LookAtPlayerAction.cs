@@ -7,6 +7,11 @@ public class LookAtPlayerAction : Action
 {
     public float lookSpeed;
 
+    public override void Enter(AIStateController stateController)
+    {
+
+    }
+    
     public override void Execute(AIStateController stateController)
     {
         Transform myTransform = stateController.transform;
@@ -17,6 +22,6 @@ public class LookAtPlayerAction : Action
         Vector2 direction = (playerPosition - currentPosition).normalized;
         Vector2 currentDirection = myTransform.right.normalized;
 
-        myTransform.right = Vector2.Lerp(currentDirection, direction, lookSpeed * Time.deltaTime);
+        myTransform.right = Vector2.Lerp(currentDirection, direction, stateController.aiStats.lookSpeed * Time.deltaTime);
     }
 }

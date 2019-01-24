@@ -7,8 +7,6 @@ public class AIStateController : MonoBehaviour
     public Position playerPosition;
     public GlobalStats playerStats;
 
-    public AIStates aiStates;
-
     [HideInInspector] private CircleController circleController;
 
     [HideInInspector] public MovementController movementController;
@@ -18,12 +16,6 @@ public class AIStateController : MonoBehaviour
     [HideInInspector] public HealthController healthController;
 
     [HideInInspector] public float combatActionDelay;
-
-    [HideInInspector] public AIState currentMovementState;
-
-    [HideInInspector] public AIState currentLookState;
-
-    [HideInInspector] public AIState currentCombatState;
 
     public AIStats aiStats;
     public State currentState;
@@ -46,9 +38,7 @@ public class AIStateController : MonoBehaviour
 
     public void Initialise()
     {
-        currentMovementState = aiStates.followPlayerState;
-        currentLookState = aiStates.lookAtState;
-        currentCombatState = aiStates.outOfAttackRangeState;
+     
     }
 
     // Update is called once per frame
@@ -58,19 +48,7 @@ public class AIStateController : MonoBehaviour
         {
             return;
         }
-        /* 
-        if (currentMovementState != null)
-        {
-            currentMovementState.Execute(this);
-        }
 
-        if (currentLookState != null)
-        {
-            currentLookState.Execute(this);
-        }
-
-        HandleWeaponStates();
-        */
         if (currentState != null)
         {
             currentState.ExecuteState(this);
@@ -81,35 +59,7 @@ public class AIStateController : MonoBehaviour
         }
     }
 
-    private void HandleWeaponStates()
-    {
 
-        if (currentCombatState == null)
-        {
-            return;
-        }
-        currentCombatState.Execute(this);
-
-        if (combatActionDelay >= 0.0f)
-        {
-            combatActionDelay -= Time.deltaTime;
-        }
-
-    }
-
-    public void ChangeCombatState(AIState next)
-    {
-        currentCombatState.Exit(this);
-        currentCombatState = next;
-        currentCombatState.Enter(this);
-    }
-
-    public void ChangeMovementState(AIState next)
-    {
-        currentMovementState.Exit(this);
-        currentMovementState = next;
-        currentMovementState.Enter(this);
-    }
 
     // TODO: Optimize using Vector2.sqrMagnitude
     public float DistanceFromPlayer()
