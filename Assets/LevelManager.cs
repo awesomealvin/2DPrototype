@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 
     public CircleObjectPool playerPool;
     public List<CircleObjectPool> enemyPools;
+    [SerializeField] private List<Transform> spawnPoints;
 
     public ActivePlayer currentActivePlayer;
 
@@ -24,12 +25,39 @@ public class LevelManager : MonoBehaviour
 
     private bool on;
 
-    private float currentTime;    
+    private float currentWaveBreakTime;
+    private float currentWaveTime;
+
+    [SerializeField] private GameEvent enemyCountDeductionEvent;
+    [SerializeField] private GameEvent waveChangeEvent;
+
+    public enum LevelState
+    {
+        NONE,
+        WAVE_BREAK,
+        IN_WAVE
+    }
+
+    private LevelState currentLevelState;
 
     void Start()
     {
+        currentLevelState = LevelState.NONE;
+
         playerPool.Initialise(circleTransform);
         Initialise();
+    }
+
+    void Update()
+    {
+        if (currentLevelState == LevelState.WAVE_BREAK)
+        {
+            UpdateWaveBreak();
+        }
+        else if (currentLevelState == LevelState.IN_WAVE)
+        {
+            UpdateCurrentWave();
+        }
     }
 
     public void SpawnPlayer()
@@ -48,22 +76,34 @@ public class LevelManager : MonoBehaviour
 
         currentLevel = levels[startingLevel];
         levelDetails.currentLevel = startingLevel;
-        levelDetails.currentWave = 0;
+        levelDetails.currentWave = -1;
         levelDetails.totalWaves = currentLevel.waves.Count;
 
-        currentWave = currentLevel.waves[levelDetails.currentWave];
-        enemyQueue = currentWave.Initialise();
+        // currentWave = currentLevel.waves[levelDetails.currentWave];
+        // enemyQueue = currentWave.Initialise();
 
-        levelDetails.enemiesRemaining = enemyQueue.Count;
+        levelDetails.enemiesRemaining = 0;
         levelDetails.levelScore = 0;
 
+        waveChangeEvent.Raise();
+        enemyCountDeductionEvent.Raise();
+    }
+
+    public void DeductEnemyCount()
+    {
+        levelDetails.enemiesRemaining -= 1;
+        enemyCountDeductionEvent.Raise();
     }
 
     private void SpawnEnemy()
     {
         CircleController circle = enemyQueue.Dequeue();
         circle.gameObject.SetActive(true);
-        
+
+        int spawnPointIndex = Random.Range(0, spawnPoints.Count - 1);
+        circle.Initialise(spawnPoints[spawnPointIndex].position);
+
+        currentWaveTime = currentWave.spawnDelay;
     }
 
     private void InitialiseEnemyPools()
@@ -74,32 +114,57 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void UpdateWaveBreak()
+    {
+        currentWaveBreakTime -= Time.deltaTime;
+        if (currentWaveBreakTime <= 0.0f)
+        {
+            StartNextWave();
+        }
+    }
+
+    private void UpdateCurrentWave()
+    {
+        currentWaveTime -= Time.deltaTime;
+        if (currentWaveTime <= 0.0f)
+        {
+            SpawnEnemy();
+        }
+    }
+
+    private void StartNextWave()
+    {
+        levelDetails.currentWave += 1;
+        Debug.Log("CURRENT WAVE = " + levelDetails.currentWave);
+        currentWave = currentLevel.waves[levelDetails.currentWave];
+
+        if (currentWave == null)
+        {
+            LevelStop();
+        }
+        else
+        {
+            enemyQueue = currentWave.Initialise();
+            waveChangeEvent.Raise();
+            enemyCountDeductionEvent.Raise();
+            currentLevelState = LevelState.IN_WAVE;
+        }
+
+    }
+
     public void LevelStart()
     {
-        on = true;
+        currentLevelState = LevelState.WAVE_BREAK;
+        currentWaveBreakTime = currentLevel.delayBetweenWaves;
     }
 
     public void LevelStop()
     {
-        on = false;
+        currentLevelState = LevelState.NONE;
     }
 
     public void KillAll()
     {
-        // CircleController[] fisterArray = fisterPool.GetAll();
-        // CircleController[] shooterArray = shooterPool.GetAll();
-        // CircleController[] playerArray = playerPool.GetAll();
-
-        // CircleController[][] circles = { fisterArray, shooterArray, playerArray };
-
-        // foreach (CircleController[] c in circles)
-        // {
-        //     foreach (CircleController cObj in c)
-        //     {
-        //         cObj.healthController.Suicide();
-        //     }
-        // }
-
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Circle"))
         {
             CircleController c = go.GetComponent<CircleController>();
