@@ -5,19 +5,31 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
-    public CircleObjectPool fisterPool;
-    public CircleObjectPool shooterPool;
-    public ProjectileObjectPool projectilePool;
     public CircleObjectPool playerPool;
+    public List<CircleObjectPool> enemyPools;
 
     public ActivePlayer currentActivePlayer;
 
+    [SerializeField] private LevelDetails levelDetails;
+
+    [SerializeField] private Transform circleTransform;
+    [SerializeField] private List<Level> levels;
+
+    [SerializeField] private int startingLevel;
+    private Level currentLevel;
+
+    private Wave currentWave;
+
+    private Queue<CircleController> enemyQueue;
+
+    private bool on;
+
+    private float currentTime;    
+
     void Start()
     {
-        shooterPool.Initialise(this.transform);
-        fisterPool.Initialise(this.transform);
-        projectilePool.Initialise(this.transform);
-        playerPool.Initialise(this.transform);
+        playerPool.Initialise(circleTransform);
+        Initialise();
     }
 
     public void SpawnPlayer()
@@ -26,6 +38,50 @@ public class LevelManager : MonoBehaviour
         CircleController playerObj = playerPool.Obtain();
         currentActivePlayer.currentPlayer = playerObj;
         playerObj.Initialise(new Vector2(0, 0));
+    }
+
+    private void Initialise()
+    {
+        InitialiseEnemyPools();
+
+        levelDetails.Initialise();
+
+        currentLevel = levels[startingLevel];
+        levelDetails.currentLevel = startingLevel;
+        levelDetails.currentWave = 0;
+        levelDetails.totalWaves = currentLevel.waves.Count;
+
+        currentWave = currentLevel.waves[levelDetails.currentWave];
+        enemyQueue = currentWave.Initialise();
+
+        levelDetails.enemiesRemaining = enemyQueue.Count;
+        levelDetails.levelScore = 0;
+
+    }
+
+    private void SpawnEnemy()
+    {
+        CircleController circle = enemyQueue.Dequeue();
+        circle.gameObject.SetActive(true);
+        
+    }
+
+    private void InitialiseEnemyPools()
+    {
+        for (int i = 0; i < enemyPools.Count; ++i)
+        {
+            enemyPools[i].Initialise(circleTransform);
+        }
+    }
+
+    public void LevelStart()
+    {
+        on = true;
+    }
+
+    public void LevelStop()
+    {
+        on = false;
     }
 
     public void KillAll()

@@ -6,4 +6,8 @@ using UnityEngine;
 public class Level : ScriptableObject
 {
     public List<Wave> waves;
+
+    public float delayBetweenWaves = 5.0f;
+
+    
 }

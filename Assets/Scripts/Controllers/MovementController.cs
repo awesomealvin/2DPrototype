@@ -62,7 +62,7 @@ public class MovementController : MonoBehaviour
         //     isStaggered = false;
         // }
 
-        if ((rb.velocity.magnitude < movement.maxSpeed) || (staggerTime <= 0.0f))
+        if ((rb.velocity.sqrMagnitude < movement.maxSpeed * movement.maxSpeed) || (staggerTime <= 0.0f))
         {
             isStaggered = false;
         }
@@ -88,7 +88,7 @@ public class MovementController : MonoBehaviour
 
         rb.AddForce(force, ForceMode2D.Impulse);
 
-        if (rb.velocity.magnitude > movement.maxSpeed)
+        if (rb.velocity.sqrMagnitude > movement.maxSpeed * movement.maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * movement.maxSpeed;
         }

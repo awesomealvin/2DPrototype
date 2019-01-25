@@ -16,23 +16,29 @@ public class Wave
     
     public float spawnDelay;
 
-    private Queue<CircleController> enemyQueue;
-
-    public void Initialise()
+    public Queue<CircleController> Initialise()
     {
         List<CircleController> enemiesList = new List<CircleController>();
 
         for (int i = 0; i < enemyTypes.Count; ++i)
         {
-            for (int j = 0; j < enemyTypes[j].amount; ++j)
+            for (int j = 0; j < enemyTypes[i].amount; ++j)
             {
-                CircleController enemy = enemyTypes[j].enemyObjectPool.Obtain();
+                CircleController enemy = enemyTypes[i].enemyObjectPool.Obtain();
                 enemy.gameObject.SetActive(false);
                 enemiesList.Add(enemy);
             }
         }
 
         ShuffleList(enemiesList);
+
+        Queue<CircleController> enemyQueue = new Queue<CircleController>(); 
+        for (int i = 0; i < enemiesList.Count; ++i)
+        {
+            enemyQueue.Enqueue(enemiesList[i]);
+        }
+
+        return enemyQueue;
     }
 
     private void ShuffleList(List<CircleController> list)
@@ -45,5 +51,7 @@ public class Wave
             list[random] = temp;
         }
     }
+
+
 
 }
