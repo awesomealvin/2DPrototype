@@ -17,12 +17,12 @@ MonoBehaviour:
     - enemyObjectPool: {fileID: 11400000, guid: d62d31592fdff7f438a717d761b67188,
         type: 2}
       amount: 5
-    spawnDelay: 1
+    spawnDelay: 2
   - enemyTypes:
     - enemyObjectPool: {fileID: 11400000, guid: d62d31592fdff7f438a717d761b67188,
         type: 2}
       amount: 10
-    spawnDelay: 1
+    spawnDelay: 2
   - enemyTypes:
     - enemyObjectPool: {fileID: 11400000, guid: d62d31592fdff7f438a717d761b67188,
         type: 2}
@@ -30,5 +30,5 @@ MonoBehaviour:
     - enemyObjectPool: {fileID: 11400000, guid: b08ced149a649f540bae5bf29c2045a6,
         type: 2}
       amount: 5
-    spawnDelay: 1
-  delayBetweenWaves: 5
+    spawnDelay: 2
+  delayBetweenWaves: 3

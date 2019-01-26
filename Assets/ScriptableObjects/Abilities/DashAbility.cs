@@ -40,15 +40,24 @@ public class DashAbility : Ability
                     Vector2 direction = healthController.transform.position - abilityController.transform.position;
                     Vector2 force = direction * damageForce;
                     healthController.Damage(damage, force, 1.0f, abilityController.circleController.entityType);
+
+                    Dash(abilityController, force.normalized, dashForce * 0.75f);
                 }
             }
+
+
 
         }
     }
 
     public override void Use(AbilityController abilityController)
     {
+        Vector2 direction = abilityController.useDirection.normalized;
+        Dash(abilityController, direction, dashForce);
+    }
 
+    private void Dash(AbilityController abilityController, Vector2 direction, float dashForce)
+    {
         abilityController.rb.velocity = Vector2.zero;
         // Change Movement State
         MovementController movementController = abilityController.circleController.movementController;
@@ -59,10 +68,9 @@ public class DashAbility : Ability
 
         Rigidbody2D rb = abilityController.rb;
 
-        Vector2 force = abilityController.useDirection.normalized * dashForce;
+        Vector2 force = direction * dashForce;
         rb.AddForce(-force, ForceMode2D.Impulse);
 
         abilityController.PlayParticles();
-
     }
 }

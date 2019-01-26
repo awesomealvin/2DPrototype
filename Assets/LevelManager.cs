@@ -97,6 +97,10 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        if (enemyQueue.Count <= 0)
+        {
+            return;
+        }
         CircleController circle = enemyQueue.Dequeue();
         circle.gameObject.SetActive(true);
 
@@ -104,6 +108,21 @@ public class LevelManager : MonoBehaviour
         circle.Initialise(spawnPoints[spawnPointIndex].position);
 
         currentWaveTime = currentWave.spawnDelay;
+    }
+
+    public void CheckEnemyCount()
+    {
+        Debug.Log(levelDetails.enemiesRemaining);
+        if (levelDetails.enemiesRemaining <= 0)
+        {
+            StartWaveBreak();
+        }
+    }
+
+    private void StartWaveBreak()
+    {
+        currentWaveBreakTime = currentLevel.delayBetweenWaves;
+        currentLevelState = LevelState.WAVE_BREAK;
     }
 
     private void InitialiseEnemyPools()
@@ -136,15 +155,18 @@ public class LevelManager : MonoBehaviour
     {
         levelDetails.currentWave += 1;
         Debug.Log("CURRENT WAVE = " + levelDetails.currentWave);
-        currentWave = currentLevel.waves[levelDetails.currentWave];
 
-        if (currentWave == null)
+        if (levelDetails.currentWave > currentLevel.waves.Count - 1)
         {
             LevelStop();
+
         }
         else
         {
+            currentWave = currentLevel.waves[levelDetails.currentWave];
+
             enemyQueue = currentWave.Initialise();
+            levelDetails.enemiesRemaining = enemyQueue.Count;
             waveChangeEvent.Raise();
             enemyCountDeductionEvent.Raise();
             currentLevelState = LevelState.IN_WAVE;
