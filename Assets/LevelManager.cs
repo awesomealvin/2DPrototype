@@ -14,7 +14,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LevelDetails levelDetails;
 
     [SerializeField] private Transform circleTransform;
-    [SerializeField] private List<Level> levels;
+    // [SerializeField] private List<Level> levels;
+    [SerializeField] private LevelSet levelSet;
 
     [SerializeField] private int startingLevel;
     private Level currentLevel;
@@ -74,7 +75,7 @@ public class LevelManager : MonoBehaviour
 
         levelDetails.Initialise();
 
-        currentLevel = levels[startingLevel];
+        currentLevel = levelSet.levels[startingLevel];
         levelDetails.currentLevel = startingLevel;
         levelDetails.currentWave = -1;
         levelDetails.totalWaves = currentLevel.waves.Count;

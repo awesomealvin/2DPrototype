@@ -4,7 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Wave
-{
+{   
+    // [Header("Enemy Type")]
     [System.Serializable]
     public class WaveData
     {

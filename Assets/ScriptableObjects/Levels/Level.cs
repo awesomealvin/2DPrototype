@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "Level")]
+[CreateAssetMenu (menuName = "Levels/Level")]
 public class Level : ScriptableObject
 {
     public List<Wave> waves;
