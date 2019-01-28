@@ -17,6 +17,6 @@ public class WaveUIController : MonoBehaviour
 
     public void UpdateWaveText()
     {
-        waveCountText.text = levelDetails.currentWave + "/" + levelDetails.totalWaves;
+        waveCountText.text = (levelDetails.currentWave + 1) + "/" + levelDetails.totalWaves;
     }
 }

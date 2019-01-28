@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     // [SerializeField] private List<Level> levels;
     [SerializeField] private LevelSet levelSet;
 
-    [SerializeField] private int startingLevel;
+    [SerializeField] private IntegerVariable selectedLevel;
     private Level currentLevel;
 
     private Wave currentWave;
@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         IN_WAVE
     }
 
-    private LevelState currentLevelState;
+    private LevelState currentLevelState = LevelState.NONE;
 
     void Start()
     {
@@ -73,10 +73,14 @@ public class LevelManager : MonoBehaviour
     {
         InitialiseEnemyPools();
 
+    }
+
+    private void InitialiseLevel()
+    {
         levelDetails.Initialise();
 
-        currentLevel = levelSet.levels[startingLevel];
-        levelDetails.currentLevel = startingLevel;
+        currentLevel = levelSet.levels[selectedLevel.value];
+        levelDetails.currentLevel = selectedLevel.value;
         levelDetails.currentWave = -1;
         levelDetails.totalWaves = currentLevel.waves.Count;
 
@@ -113,7 +117,10 @@ public class LevelManager : MonoBehaviour
 
     public void CheckEnemyCount()
     {
-        Debug.Log(levelDetails.enemiesRemaining);
+        if (currentLevelState == LevelState.NONE)
+        {
+            return;
+        }
         if (levelDetails.enemiesRemaining <= 0)
         {
             StartWaveBreak();
@@ -177,6 +184,8 @@ public class LevelManager : MonoBehaviour
 
     public void LevelStart()
     {
+        Debug.Log("LEvel Start");
+        InitialiseLevel();
         currentLevelState = LevelState.WAVE_BREAK;
         currentWaveBreakTime = currentLevel.delayBetweenWaves;
     }

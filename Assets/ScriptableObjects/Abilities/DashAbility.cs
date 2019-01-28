@@ -40,7 +40,7 @@ public class DashAbility : Ability
                     Vector2 direction = healthController.transform.position - abilityController.transform.position;
                     Vector2 force = direction * damageForce;
                     healthController.Damage(damage, force, 1.0f, abilityController.circleController.entityType);
-
+                    Debug.Log("Enemy hit with dash");
                     Dash(abilityController, force.normalized, dashForce * 0.75f);
                 }
             }
