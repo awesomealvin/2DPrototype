@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         currentLevelState = LevelState.NONE;
 
         playerPool.Initialise(circleTransform);

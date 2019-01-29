@@ -9,6 +9,7 @@ public class WaveUIController : MonoBehaviour
 
     [SerializeField] private TMP_Text enemyCountText;
     [SerializeField] private TMP_Text waveCountText;
+    [SerializeField] private TMP_Text levelText;
 
     public void UpdateEnemyCountText()
     {
@@ -18,5 +19,6 @@ public class WaveUIController : MonoBehaviour
     public void UpdateWaveText()
     {
         waveCountText.text = (levelDetails.currentWave + 1) + "/" + levelDetails.totalWaves;
+        levelText.text = "LEVEL " + levelDetails.currentLevel;
     }
 }

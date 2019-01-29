@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerMovement
   m_EditorClassIdentifier: 
   acceleration: 5
-  maxSpeed: 10
+  maxSpeed: 15
   linearDrag: 10
-  currentVelocity: {x: 0.005640086, y: -0.0005798019}
+  currentVelocity: {x: 0, y: 0}

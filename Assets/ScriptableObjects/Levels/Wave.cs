@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class Wave
-{   
+{
     // [Header("Enemy Type")]
     [System.Serializable]
     public class WaveData
@@ -14,7 +14,8 @@ public class Wave
     }
 
     public List<WaveData> enemyTypes;
-    
+    [Space(15)]
+
     public float spawnDelay;
 
     public Queue<CircleController> Initialise()
@@ -33,7 +34,7 @@ public class Wave
 
         ShuffleList(enemiesList);
 
-        Queue<CircleController> enemyQueue = new Queue<CircleController>(); 
+        Queue<CircleController> enemyQueue = new Queue<CircleController>();
         for (int i = 0; i < enemiesList.Count; ++i)
         {
             enemyQueue.Enqueue(enemiesList[i]);
@@ -44,7 +45,7 @@ public class Wave
 
     private void ShuffleList(List<CircleController> list)
     {
-        for (int i = list.Count- 1; i > 0; --i)
+        for (int i = list.Count - 1; i > 0; --i)
         {
             int random = Random.Range(0, i);
             CircleController temp = list[i];
@@ -52,7 +53,5 @@ public class Wave
             list[random] = temp;
         }
     }
-
-
 
 }
